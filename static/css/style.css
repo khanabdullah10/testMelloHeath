@@ -1928,6 +1928,10 @@ img {
         z-index: 1000;
     }
     
+    .nav-menu .nav-link {
+        white-space: nowrap;
+    }
+    
     .nav-menu.active {
         display: flex;
     }
