@@ -84,6 +84,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollAnimations();
     initializeSlider();
     initializeHeroSlider();
+    initializeHealthSlider();
+    initializeBookSlider();
     addSlideAnimationCSS();
     addScrollAnimationStyles();
     addRippleEffect();
@@ -598,6 +600,228 @@ function showLoading(element) {
             }
         </style>
     `;
+}
+
+// Health Services Slider
+let healthSliderInterval;
+let currentHealthSlide = 0;
+let healthSlides = [];
+
+function initializeHealthSlider() {
+    const sliderTrack = document.getElementById('healthSlider');
+    const indicatorsContainer = document.getElementById('sliderIndicators');
+    
+    if (!sliderTrack || !indicatorsContainer) return;
+    
+    healthSlides = sliderTrack.querySelectorAll('.slide');
+    const totalSlides = healthSlides.length;
+    
+    // Create indicators
+    for (let i = 0; i < totalSlides; i++) {
+        const indicator = document.createElement('div');
+        indicator.className = 'indicator';
+        if (i === 0) indicator.classList.add('active');
+        indicator.addEventListener('click', () => goToHealthSlide(i));
+        indicatorsContainer.appendChild(indicator);
+    }
+    
+    // Start auto-slide
+    startHealthSlider();
+    
+    // Pause on hover
+    sliderTrack.addEventListener('mouseenter', pauseHealthSlider);
+    sliderTrack.addEventListener('mouseleave', startHealthSlider);
+    
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let endX = 0;
+    
+    sliderTrack.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        pauseHealthSlider();
+    });
+    
+    sliderTrack.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+        
+        if (Math.abs(diff) > 50) { // Minimum swipe distance
+            if (diff > 0) {
+                nextHealthSlide();
+            } else {
+                prevHealthSlide();
+            }
+        }
+        
+        startHealthSlider();
+    });
+}
+
+function startHealthSlider() {
+    if (healthSliderInterval) clearInterval(healthSliderInterval);
+    healthSliderInterval = setInterval(nextHealthSlide, 3000); // 3 seconds
+}
+
+function pauseHealthSlider() {
+    if (healthSliderInterval) {
+        clearInterval(healthSliderInterval);
+        healthSliderInterval = null;
+    }
+}
+
+function nextHealthSlide() {
+    const totalSlides = healthSlides.length;
+    currentHealthSlide = (currentHealthSlide + 1) % totalSlides;
+    updateHealthSlider();
+}
+
+function prevHealthSlide() {
+    const totalSlides = healthSlides.length;
+    currentHealthSlide = (currentHealthSlide - 1 + totalSlides) % totalSlides;
+    updateHealthSlider();
+}
+
+function goToHealthSlide(index) {
+    currentHealthSlide = index;
+    updateHealthSlider();
+    // Restart the timer when manually navigating
+    startHealthSlider();
+}
+
+function updateHealthSlider() {
+    const sliderTrack = document.getElementById('healthSlider');
+    const indicators = document.querySelectorAll('.indicator');
+    const totalSlides = healthSlides.length;
+    
+    if (!sliderTrack) return;
+    
+    // Update slider position
+    sliderTrack.style.transform = `translateX(-${currentHealthSlide * 100}%)`;
+    
+    // Update indicators
+    indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentHealthSlide);
+    });
+    
+    // Add entrance animation to current slide
+    healthSlides.forEach((slide, index) => {
+        if (index === currentHealthSlide) {
+            slide.style.animation = 'slideIn 0.5s ease-out';
+        } else {
+            slide.style.animation = '';
+        }
+    });
+}
+
+// Add slide entrance animation
+const slideAnimationStyle = document.createElement('style');
+slideAnimationStyle.textContent = `
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+`;
+document.head.appendChild(slideAnimationStyle);
+
+// Book Animated Slider
+let currentBookPage = 0;
+let bookPages = [];
+let bookSliderInterval;
+
+function initializeBookSlider() {
+    const bookSlider = document.getElementById('bookSlider');
+    
+    if (!bookSlider) return;
+    
+    bookPages = bookSlider.querySelectorAll('.book-page');
+    
+    // Create book indicators
+    createBookIndicators();
+    
+    // Start auto-slide
+    startBookSlider();
+    
+    // Pause on hover
+    bookSlider.addEventListener('mouseenter', pauseBookSlider);
+    bookSlider.addEventListener('mouseleave', startBookSlider);
+    
+    // Initialize first page
+    updateBookPageDisplay();
+}
+
+function goToBookPage(index) {
+    if (index < 0 || index >= bookPages.length) return;
+    
+    currentBookPage = index;
+    updateBookPageDisplay();
+    updateBookIndicators();
+}
+
+function createBookIndicators() {
+    const indicatorsContainer = document.querySelector('.book-indicators');
+    if (!indicatorsContainer) return;
+    
+    indicatorsContainer.innerHTML = '';
+    
+    for (let i = 0; i < bookPages.length; i++) {
+        const indicator = document.createElement('div');
+        indicator.className = 'indicator';
+        if (i === 0) indicator.classList.add('active');
+        indicator.addEventListener('click', () => goToBookPage(i));
+        indicatorsContainer.appendChild(indicator);
+    }
+}
+
+function updateBookIndicators() {
+    const indicators = document.querySelectorAll('.book-indicators .indicator');
+    indicators.forEach((indicator, index) => {
+        if (index === currentBookPage) {
+            indicator.classList.add('active');
+        } else {
+            indicator.classList.remove('active');
+        }
+    });
+}
+
+function updateBookPageDisplay() {
+    bookPages.forEach((page, index) => {
+        if (index === currentBookPage) {
+            page.style.transform = 'rotateY(0deg)';
+            page.style.zIndex = '10';
+        } else if (index < currentBookPage) {
+            page.style.transform = 'rotateY(-180deg)';
+            page.style.zIndex = '5';
+        } else {
+            page.style.transform = 'rotateY(0deg)';
+            page.style.zIndex = '1';
+        }
+    });
+}
+
+function nextBookPage() {
+    if (currentBookPage < bookPages.length - 1) {
+        goToBookPage(currentBookPage + 1);
+    } else {
+        goToBookPage(0); // Loop back to first page
+    }
+}
+
+function startBookSlider() {
+    if (bookSliderInterval) clearInterval(bookSliderInterval);
+    bookSliderInterval = setInterval(nextBookPage, 4000); // Slightly longer interval for book effect
+}
+
+function pauseBookSlider() {
+    if (bookSliderInterval) {
+        clearInterval(bookSliderInterval);
+        bookSliderInterval = null;
+    }
 }
 
 // Enhanced error handling
