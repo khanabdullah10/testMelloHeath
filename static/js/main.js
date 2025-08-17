@@ -222,23 +222,32 @@ function updateDots() {
     });
 }
 
-// Add slide animation CSS
+// Add slide animation CSS with optimized performance
 function addSlideAnimationCSS() {
     const style = document.createElement('style');
     style.textContent = `
         @keyframes slideIn {
             from {
                 opacity: 0;
-                transform: translateX(20px);
+                transform: translateX(20px) translateZ(0);
             }
             to {
                 opacity: 1;
-                transform: translateX(0);
+                transform: translateX(0) translateZ(0);
             }
         }
         
         .test-card {
             animation-fill-mode: both;
+            will-change: transform, opacity;
+            transform: translateZ(0);
+        }
+        
+        /* Optimize animations to use GPU */
+        .animate-in, .slider-container, .slide, .book-slider-container,
+        .book-page, .hero-slide, .test-card, .package-card {
+            transform: translateZ(0);
+            backface-visibility: hidden;
         }
     `;
     document.head.appendChild(style);
@@ -250,6 +259,7 @@ function initializeNavigation() {
     if (mobileMenuBtn && navMenu) {
         mobileMenuBtn.addEventListener('click', function() {
             navMenu.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
         });
     }
 
@@ -268,6 +278,9 @@ function initializeNavigation() {
             // Close mobile menu
             if (navMenu) {
                 navMenu.classList.remove('active');
+                if (mobileMenuBtn) {
+                    mobileMenuBtn.classList.remove('active');
+                }
             }
         });
     });
@@ -413,18 +426,29 @@ function openWhatsApp() {
     window.open(whatsappURL, '_blank');
 }
 
-// Scroll Animations
+function openPhoneDialer() {
+    const phoneNumber = "+919594702242"; // The phone number with country code
+    window.location.href = `tel:${phoneNumber}`;
+}
+
+// Scroll Animations with optimized performance
 function initializeScrollAnimations() {
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.05, // Lower threshold for earlier detection
+        rootMargin: '50px 0px -30px 0px' // Start loading before elements enter viewport
     };
 
     const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-            }
+        // Process all entries in a single frame for better performance
+        requestAnimationFrame(() => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    element.classList.add('animate-in');
+                    // Unobserve after animation to save resources
+                    observer.unobserve(element);
+                }
+            });
         });
     }, observerOptions);
 
@@ -433,8 +457,13 @@ function initializeScrollAnimations() {
         '.quick-action-card, .lab-card, .test-card, .package-card, .radiology-card, .specialty-card, .location-card'
     );
     
-    animateElements.forEach(el => {
-        observer.observe(el);
+    // Batch observe operations for better performance
+    requestAnimationFrame(() => {
+        animateElements.forEach(el => {
+            // Set will-change for smoother transitions
+            el.style.willChange = 'transform, opacity';
+            observer.observe(el);
+        });
     });
 }
 
@@ -739,7 +768,13 @@ function initializeBookSlider() {
     
     if (!bookSlider) return;
     
-    bookPages = bookSlider.querySelectorAll('.book-page');
+    // Use Array.from for better performance with NodeList
+    bookPages = Array.from(bookSlider.querySelectorAll('.book-page'));
+    
+    // Apply initial transform to ensure hardware acceleration
+    bookPages.forEach(page => {
+        page.style.transform = 'translateZ(0)';
+    });
     
     // Create book indicators
     createBookIndicators();
@@ -747,12 +782,20 @@ function initializeBookSlider() {
     // Start auto-slide
     startBookSlider();
     
-    // Pause on hover
-    bookSlider.addEventListener('mouseenter', pauseBookSlider);
-    bookSlider.addEventListener('mouseleave', startBookSlider);
+    // Pause on hover with passive event listeners for better performance
+    bookSlider.addEventListener('mouseenter', pauseBookSlider, { passive: true });
+    bookSlider.addEventListener('mouseleave', startBookSlider, { passive: true });
     
     // Initialize first page
     updateBookPageDisplay();
+    
+    // Force a repaint to ensure smooth initial rendering
+    window.requestAnimationFrame(() => {
+        bookSlider.style.opacity = '0.99';
+        setTimeout(() => {
+            bookSlider.style.opacity = '1';
+        }, 0);
+    });
 }
 
 function goToBookPage(index) {
@@ -769,11 +812,14 @@ function createBookIndicators() {
     
     indicatorsContainer.innerHTML = '';
     
+    // Create a debounced version of goToBookPage to prevent rapid transitions
+    const debouncedGoToPage = debounce(goToBookPage, 300);
+    
     for (let i = 0; i < bookPages.length; i++) {
         const indicator = document.createElement('div');
         indicator.className = 'indicator';
         if (i === 0) indicator.classList.add('active');
-        indicator.addEventListener('click', () => goToBookPage(i));
+        indicator.addEventListener('click', () => debouncedGoToPage(i));
         indicatorsContainer.appendChild(indicator);
     }
 }
@@ -790,17 +836,20 @@ function updateBookIndicators() {
 }
 
 function updateBookPageDisplay() {
-    bookPages.forEach((page, index) => {
-        if (index === currentBookPage) {
-            page.style.transform = 'rotateY(0deg)';
-            page.style.zIndex = '10';
-        } else if (index < currentBookPage) {
-            page.style.transform = 'rotateY(-180deg)';
-            page.style.zIndex = '5';
-        } else {
-            page.style.transform = 'rotateY(0deg)';
-            page.style.zIndex = '1';
-        }
+    // Use requestAnimationFrame for smoother animations
+    requestAnimationFrame(() => {
+        bookPages.forEach((page, index) => {
+            if (index === currentBookPage) {
+                page.style.transform = 'rotateY(0deg) translateZ(0)';
+                page.style.zIndex = '10';
+            } else if (index < currentBookPage) {
+                page.style.transform = 'rotateY(-180deg) translateZ(0)';
+                page.style.zIndex = '5';
+            } else {
+                page.style.transform = 'rotateY(0deg) translateZ(0)';
+                page.style.zIndex = '1';
+            }
+        });
     });
 }
 
@@ -814,7 +863,8 @@ function nextBookPage() {
 
 function startBookSlider() {
     if (bookSliderInterval) clearInterval(bookSliderInterval);
-    bookSliderInterval = setInterval(nextBookPage, 4000); // Slightly longer interval for book effect
+    // Use a slightly longer interval (5000ms) for smoother transitions
+    bookSliderInterval = setInterval(nextBookPage, 5000);
 }
 
 function pauseBookSlider() {
@@ -824,27 +874,91 @@ function pauseBookSlider() {
     }
 }
 
+// Add debounce function to prevent rapid transitions
+function debounce(func, wait) {
+    let timeout;
+    return function() {
+        const context = this;
+        const args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), wait);
+    };
+}
+
 // Enhanced error handling
 window.addEventListener('error', function(e) {
     console.error('JavaScript error:', e.error);
     // You could send error reports to your analytics service here
 });
 
-// Performance optimization - lazy load images
+// Performance optimizations
+document.addEventListener('DOMContentLoaded', function() {
+    // Optimize image loading
+    optimizeImageLoading();
+    
+    // Add passive event listeners to improve scroll performance
+    addPassiveEventListeners();
+});
+
+// Optimize image loading
+function optimizeImageLoading() {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src || img.src;
+                    img.onload = () => img.classList.add('loaded');
+                    observer.unobserve(img);
+                }
+            });
+        }, { rootMargin: '50px 0px' });
+        
+        images.forEach(img => imageObserver.observe(img));
+    }
+}
+
+// Add passive event listeners to improve scroll performance
+function addPassiveEventListeners() {
+    const wheelOpts = { passive: true };
+    const wheelEvents = ['mousewheel', 'wheel', 'touchstart', 'touchmove'];
+    
+    wheelEvents.forEach(eventName => {
+        window.addEventListener(eventName, e => { /* Empty handler */ }, wheelOpts);
+    });
+}
+
+// Performance optimization - lazy load images with enhanced performance
 function lazyLoadImages() {
     const images = document.querySelectorAll('img[data-src]');
     const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-                imageObserver.unobserve(img);
-            }
+        // Process all entries in a single frame for better performance
+        requestAnimationFrame(() => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    // Create a temporary image to preload
+                    const tempImage = new Image();
+                    tempImage.onload = function() {
+                        img.src = img.dataset.src;
+                        img.classList.add('loaded');
+                        img.removeAttribute('data-src');
+                        imageObserver.unobserve(img);
+                    };
+                    tempImage.src = img.dataset.src;
+                }
+            });
         });
+    }, {
+        rootMargin: '100px 0px', // Load images 100px before they enter viewport
+        threshold: 0.01 // Trigger when just 1% of the image is visible
     });
     
-    images.forEach(img => imageObserver.observe(img));
+    // Batch observe operations for better performance
+    requestAnimationFrame(() => {
+        images.forEach(img => imageObserver.observe(img));
+    });
 }
 
 // Add ripple effect to buttons
