@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mello Health - From Lab to Doctor - All in one</title>
+    <link rel="icon" type="image/png" href="assets/img/melloHeath.png">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <img src="assets/img/melloHeath.png" alt="Mello Health" class="brand-logo">
+                    <div class="brand-text">
+                        <h1>MELLO HEALTH</h1>
+                        <p>From Lab to Doctor - All in one</p>
+                    </div>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#blood-tests" class="nav-link">Blood Tests</a>
+                    <a href="#health-packages" class="nav-link">Health Packages</a>
+                    <a href="#radiology" class="nav-link">Radiology</a>
+                    <a href="#consultation" class="nav-link">Doctor Consultation</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <div class="nav-actions">
+                    <button class="whatsapp-btn" onclick="openWhatsApp()">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp
+                    </button>
+                    <button class="mobile-menu-btn" id="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-slider">
+            <div class="hero-slide active">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Your Health, Our Priority</h1>
+                        <p class="hero-subtitle">Get comprehensive health services from the comfort of your home</p>
+                        <div class="hero-actions">
+                            <button class="btn btn-primary" onclick="scrollToSection('blood-tests')">
+                                <i class="fas fa-vial"></i>
+                                Book Blood Test
+                            </button>
+                            <button class="btn btn-secondary" onclick="openWhatsApp()">
+                                <i class="fab fa-whatsapp"></i>
+                                WhatsApp Enquiry
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="hero-graphic">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="quick-actions">
+        <div class="container">
+            <div class="quick-actions-grid">
+                <div class="quick-action-card" onclick="openWhatsApp()">
+                    <i class="fas fa-search"></i>
+                    <h3>Can't find what you are looking for?</h3>
+                    <p>Get help via WhatsApp</p>
+                </div>
+                <div class="quick-action-card" onclick="openWhatsApp()">
+                    <i class="fas fa-home"></i>
+                    <h3>Book Home Visit for Blood Test</h3>
+                    <p>on WhatsApp</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lab Partners -->
+    <section class="lab-partners">
+        <div class="container">
+            <div class="section-header">
+                <h2>Providing Blood Tests from Quality Labs</h2>
+                <p>with highly discounted rate upto 50%</p>
+            </div>
+            <div class="lab-grid">
+                <div class="lab-card">
+                    <div class="lab-logo">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Suburban Diagnostics</h3>
+                </div>
+                <div class="lab-card">
+                    <div class="lab-logo">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>Metropolis Labs</h3>
+                </div>
+                <div class="lab-card">
+                    <div class="lab-logo">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <h3>Agilius Diagnostics</h3>
+                </div>
+                <div class="lab-card">
+                    <div class="lab-logo">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3>Dr. Lal Pathlabs</h3>
+                </div>
+                <div class="lab-card">
+                    <div class="lab-logo">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Thyrocare</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blood Tests Section -->
+    <section class="blood-tests" id="blood-tests">
+        <div class="container">
+            <div class="section-header">
+                <h2>Blood Tests</h2>
+                <p><i class="fas fa-home"></i> All blood tests done via Home Blood Collection</p>
+            </div>
+            <div class="tests-slider-container">
+                <div class="slider-controls">
+                    <button class="slider-btn prev-btn" id="prevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-btn next-btn" id="nextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="tests-slider" id="testsSlider">
+                    <div class="tests-grid">
+                        <!-- Blood tests will be populated by JavaScript -->
+                    </div>
+                </div>
+                <div class="slider-dots" id="sliderDots">
+                    <!-- Dots will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Packages -->
+    <section class="health-packages" id="health-packages">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="highlight">Health Checkup Packages</h2>
+                <p>Comprehensive health screening packages</p>
+            </div>
+            <div class="packages-grid">
+                <div class="package-card featured">
+                    <div class="package-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Basic Health Checkup</h3>
+                    <p>Essential tests for general health monitoring</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Complete Blood Count</li>
+                        <li><i class="fas fa-check"></i> Lipid Profile</li>
+                        <li><i class="fas fa-check"></i> Blood Sugar</li>
+                        <li><i class="fas fa-check"></i> Kidney Function</li>
+                    </ul>
+                    <button class="btn btn-primary">Book Now</button>
+                </div>
+                <div class="package-card">
+                    <div class="package-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Comprehensive Checkup</h3>
+                    <p>Detailed health assessment with advanced tests</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> All Basic Tests</li>
+                        <li><i class="fas fa-check"></i> Thyroid Profile</li>
+                        <li><i class="fas fa-check"></i> Vitamin Profile</li>
+                        <li><i class="fas fa-check"></i> ECG</li>
+                    </ul>
+                    <button class="btn btn-primary">Book Now</button>
+                </div>
+                <div class="package-card">
+                    <div class="package-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3>Executive Checkup</h3>
+                    <p>Premium health package for busy professionals</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> All Comprehensive Tests</li>
+                        <li><i class="fas fa-check"></i> Stress Tests</li>
+                        <li><i class="fas fa-check"></i> Cancer Markers</li>
+                        <li><i class="fas fa-check"></i> Doctor Consultation</li>
+                    </ul>
+                    <button class="btn btn-primary">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Radiology Services -->
+    <section class="radiology" id="radiology">
+        <div class="container">
+            <div class="section-header">
+                <h2>Radiology Services</h2>
+                <p>Advanced imaging and diagnostic services</p>
+            </div>
+            <div class="radiology-grid">
+                <div class="radiology-card">
+                    <div class="radiology-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Sonography</h3>
+                    <p>All types</p>
+                </div>
+                <div class="radiology-card">
+                    <div class="radiology-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>2D ECHO</h3>
+                    <p>Heart imaging</p>
+                </div>
+                <div class="radiology-card">
+                    <div class="radiology-icon">
+                        <i class="fas fa-x-ray"></i>
+                    </div>
+                    <h3>X-Rays</h3>
+                    <p>Digital imaging</p>
+                </div>
+                <div class="radiology-card">
+                    <div class="radiology-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>ECG</h3>
+                    <p>Heart monitoring</p>
+                </div>
+                <div class="radiology-card">
+                    <div class="radiology-icon">
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <h3>BMD</h3>
+                    <p>Bone Mineral Density</p>
+                </div>
+                <div class="radiology-card">
+                    <div class="radiology-icon">
+                        <i class="fas fa-ribbon"></i>
+                    </div>
+                    <h3>Mammography</h3>
+                    <p>Breast screening</p>
+                </div>
+            </div>
+            
+            <div class="locations-section">
+                <h3>Available Locations</h3>
+                <div class="locations-grid">
+                    <div class="location-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Andheri East (J B Nagar)</span>
+                    </div>
+                    <div class="location-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Andheri West (Lokhandwala)</span>
+                    </div>
+                    <div class="location-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Juhu</span>
+                    </div>
+                    <div class="location-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kalina</span>
+                    </div>
+                    <div class="location-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Malad West</span>
+                    </div>
+                    <div class="location-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kandivali East (Thakur Complex)</span>
+                    </div>
+                    <div class="location-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Kemps Corner (South Bombay)</span>
+                    </div>
+                    <div class="location-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Thane (GB Road)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctor Consultation -->
+    <section class="consultation" id="consultation">
+        <div class="container">
+            <div class="section-header">
+                <h2>Doctor Video Consultation</h2>
+                <p>Consult with specialists from the comfort of your home</p>
+            </div>
+            <div class="consultation-content">
+                <div class="specialties-grid">
+                    <div class="specialty-card" data-specialty="Audiology & Speech Therapy">
+                        <div class="specialty-icon">
+                            <i class="fas fa-assistive-listening-systems"></i>
+                        </div>
+                        <h3>Audiology & Speech Therapy</h3>
+                    </div>
+                    <div class="specialty-card" data-specialty="Cardiology">
+                        <div class="specialty-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Cardiology</h3>
+                    </div>
+                    <div class="specialty-card" data-specialty="Dermatology">
+                        <div class="specialty-icon">
+                            <i class="fas fa-hand-sparkles"></i>
+                        </div>
+                        <h3>Dermatology</h3>
+                    </div>
+                    <div class="specialty-card" data-specialty="Endocrinology">
+                        <div class="specialty-icon">
+                            <i class="fas fa-dna"></i>
+                        </div>
+                        <h3>Endocrinology</h3>
+                    </div>
+                    <div class="specialty-card" data-specialty="ENT">
+                        <div class="specialty-icon">
+                            <i class="fas fa-head-side-mask"></i>
+                        </div>
+                        <h3>ENT</h3>
+                    </div>
+                    <div class="specialty-card" data-specialty="Gastroenterology">
+                        <div class="specialty-icon">
+                            <i class="fas fa-pills"></i>
+                        </div>
+                        <h3>Gastroenterology</h3>
+                    </div>
+                    <div class="specialty-card" data-specialty="General Medicine">
+                        <div class="specialty-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3>General Medicine</h3>
+                    </div>
+                    <div class="specialty-card" data-specialty="Gynaecology & Obstetrics">
+                        <div class="specialty-icon">
+                            <i class="fas fa-baby"></i>
+                        </div>
+                        <h3>Gynaecology & Obstetrics</h3>
+                    </div>
+                    <div class="specialty-card" data-specialty="Hepatology">
+                        <div class="specialty-icon">
+                            <i class="fas fa-medkit"></i>
+                        </div>
+                        <h3>Hepatology</h3>
+                    </div>
+                    <div class="specialty-card" data-specialty="Medical Oncology">
+                        <div class="specialty-icon">
+                            <i class="fas fa-ribbon"></i>
+                        </div>
+                        <h3>Medical Oncology</h3>
+                    </div>
+                    <div class="specialty-card" data-specialty="Orthopaedics">
+                        <div class="specialty-icon">
+                            <i class="fas fa-bone"></i>
+                        </div>
+                        <h3>Orthopaedics</h3>
+                    </div>
+                    <div class="specialty-card" data-specialty="Paediatrics">
+                        <div class="specialty-icon">
+                            <i class="fas fa-child"></i>
+                        </div>
+                        <h3>Paediatrics</h3>
+                    </div>
+                    <div class="specialty-card" data-specialty="Psychiatry">
+                        <div class="specialty-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Psychiatry</h3>
+                    </div>
+                    <div class="specialty-card" data-specialty="Psychology">
+                        <div class="specialty-icon">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <h3>Psychology</h3>
+                    </div>
+                    <div class="specialty-card" data-specialty="Respiratory Medicine">
+                        <div class="specialty-icon">
+                            <i class="fas fa-lungs"></i>
+                        </div>
+                        <h3>Respiratory Medicine</h3>
+                    </div>
+                    <div class="specialty-card" data-specialty="Urology">
+                        <div class="specialty-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3>Urology</h3>
+                    </div>
+                    <div class="specialty-card" data-specialty="Varicose Veins">
+                        <div class="specialty-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>Varicose Veins</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Form Modal -->
+    <div class="modal" id="consultation-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Book Video Consultation</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <form class="consultation-form" id="consultation-form">
+                <div class="form-group">
+                    <label for="specialty">Selected Specialty</label>
+                    <input type="text" id="specialty" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth *</label>
+                    <input type="date" id="dob" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender *</label>
+                    <select id="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="medical-history">Medical History</label>
+                    <textarea id="medical-history" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="preferred-date">Preferred Date *</label>
+                    <input type="date" id="preferred-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="preferred-time">Preferred Time *</label>
+                    <input type="time" id="preferred-time" required>
+                </div>
+                <div class="form-group">
+                    <label for="referred-doctor">Referred Doctor Name</label>
+                    <input type="text" id="referred-doctor">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <img src="assets/img/melloHeath.png" alt="Mello Health" class="footer-logo">
+                        <div class="brand-text">
+                            <h3>MELLO HEALTH</h3>
+                            <p>From Lab to Doctor - All in one</p>
+                        </div>
+                    </div>
+                    <p>Your trusted healthcare partner providing comprehensive medical services at your doorstep.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#blood-tests">Blood Tests</a></li>
+                        <li><a href="#health-packages">Health Packages</a></li>
+                        <li><a href="#radiology">Radiology</a></li>
+                        <li><a href="#consultation">Doctor Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +91 9594702242</p>
+                        <p><i class="fas fa-envelope"></i> info@mellohealth.com</p>
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp Support</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mello Health. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float" onclick="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="success-modal">
+        <div class="modal-content success-modal-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Thank You!</h2>
+            <p>OUR TEAM WILL CONTACT WITH YOU SHORTLY</p>
+            <button class="btn btn-primary" onclick="closeSuccessModal()">OK</button>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
