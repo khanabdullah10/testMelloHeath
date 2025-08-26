@@ -1,65 +1,226 @@
 // Blood Tests Data
 const bloodTests = [
-    { name: "Anti CCP (Cyclic Citrullinated Peptide) Antibody, IgG", code: "CB076" },
-    { name: "Anti Smooth Muscle Antibodies, IgG", code: "CB059" },
-    { name: "Anti HBs (Hepatitis B Surface) Antibody", code: "CB057" },
-    { name: "Anti Nuclear Antibodies (ANA), IFA", code: "CB053" },
-    { name: "Anti Phospholipid Syndrome (APS) Profile", code: "PR159" },
-    { name: "Anti Thyroid Antibody (ATAB) Panel", code: "CB063" },
-    { name: "Anti-Mullerian Hormone (AMH)", code: "PATH001404" },
-    { name: "Bacterial Culture & Sensitivity, Adult, Blood", code: "MI150" },
-    { name: "Bacterial Culture & Sensitivity, Pediatric, Blood", code: "MI151" },
-    { name: "Bacterial Culture & Sensitivity, Sputum", code: "MI071" },
-    { name: "Bacterial Culture & Sensitivity, Urine", code: "MI154" },
-    { name: "Beta - Human Chorionic Gonadotropin (HCG)", code: "CB132" },
-    { name: "CA 125", code: "CB071" },
-    { name: "CD4/CD8", code: "PATH00477" },
-    { name: "Cervical Cancer Screen Panel", code: "PR161" },
-    { name: "CRP (C-Reactive Protein)", code: "CB092" },
-    { name: "Cytology - PAP Smear, LBC, Collected Sample", code: "CY005" },
-    { name: "D-dimer", code: "PATH010158" },
-    { name: "Dual Marker (Single & Twin)", code: "SG061" },
-    { name: "Electrolytes", code: "PR115" },
-    { name: "Estradiol (E2)", code: "CB099" },
-    { name: "Ferritin", code: "CB371" },
-    { name: "FSH (Follicle Stimulating Hormone)", code: "CB109" },
-    { name: "FSH, LH & Prolactin Panel", code: "PR048" },
-    { name: "H3 Profile (HIV, Hepatitis B, Hepatitis C)", code: "PR121" },
-    { name: "HbA1c (Hemoglobin A1c), Blood", code: "CB115" },
-    { name: "Hemoglobin Electrophoresis / HPLC, Blood", code: "HAD12" },
-    { name: "Histopathology - Biopsy, Any Site, 2 - 5 cm", code: "HISTO001129" },
-    { name: "Histopathology - Biopsy, Large", code: "AP125" },
-    { name: "Histopathology - Small Biopsy, Any Site", code: "AP039" },
-    { name: "HLA B27 Detection, PCR, Blood", code: "MB014" },
-    { name: "Homocysteine, Plasma", code: "CB135" },
-    { name: "IgE (Immunoglobin E)", code: "CB139" },
-    { name: "IL-6 (Interleukin - 6)", code: "PATH001490" },
-    { name: "Iron Profile (without Ferritin)", code: "PATH001470" },
-    { name: "Kidney Function Test (KFT)", code: "PR038" },
-    { name: "LDH (Lactate Dehydrogenase)", code: "CB146" },
-    { name: "LH (Luteinizing Hormone)", code: "CB149" },
-    { name: "Lipid Profile", code: "PR130" },
-    { name: "Liver Function Test (LFT)", code: "PR131" },
-    { name: "Lupus Anticoagulant (LA)", code: "OS152" },
-    { name: "Mycobacterium tuberculosis (MTB) DNA, PCR, Qualitative", code: "MB009" },
-    { name: "Procalcitonin", code: "CB172" },
-    { name: "Progesterone", code: "CB173" },
-    { name: "Prolactin", code: "CB174" },
-    { name: "PSA (Prostate Specific Antigen), Free & Total, Serum", code: "CB106" },
-    { name: "PSA (Prostate Specific Antigen), Total", code: "CB177" },
-    { name: "PTH (Parathyroid Hormone)", code: "CB178" },
-    { name: "Quadruple Marker", code: "SG063" },
-    { name: "RA (Rheumatoid Arthritis) Factor", code: "CB179" },
-    { name: "TB Culture, Sputum", code: "MI109" },
-    { name: "Testosterone, Free & Bioavailable", code: "CB108" },
-    { name: "Testosterone, Total", code: "CB200" },
-    { name: "Thyroid Function Profile (TFT), Free", code: "PR056" },
-    { name: "TORCH Profile B, IgM & IgG", code: "PR144" },
-    { name: "Total TFT (T3, T4, TSH)", code: "PR148" },
-    { name: "Triple Marker", code: "SG062" },
-    { name: "TSH (Thyroid Stimulating Hormone)", code: "CB207" },
-    { name: "Vitamin B12", code: "CB234" },
-    { name: "Vitamin D (25-Hydroxyvitamin D2 & D3), Total", code: "CB235" }
+    { name: "CBC (Complete Blood Count), Blood", Price: "₹330" },
+    { name: "ESR (Erythrocyte Sedimentation Rate), Blood", Price: "₹200" },
+    { name: "Routine Examination, Urine", Price: "₹200" },
+    { name: "HbA1c (Hemoglobin A1c), Blood", Price: "₹620" },
+    { name: "Glucose, Fasting, Plasma", Price: "₹110" },
+    { name: "Glucose, Post Prandial (PP), Plasma & Urine", Price: "₹110" },
+    { name: "Thyroid Function Profile (TFT), Free", Price: "₹810" },
+    { name: "Lipid Profile", Price: "₹790" },
+    { name: "Kidney Function Test (KFT)", Price: "₹1540" },
+    { name: "Liver Function Test (LFT)", Price: "₹1050" },
+    { name: "Vitamin D (25-Hydroxyvitamin D2 & D3), Total", Price: "₹1700" },
+    { name: "Vitamin B12", Price: "₹1160" },
+    { name: "Anti CCP (Cyclic Citrullinated Peptide) Antibody, IgG", Price: "₹1490" },
+    { name: "Anti Smooth Muscle Antibodies, IgG", Price: "₹1670" },
+    { name: "Anti HBs (Hepatitis B Surface) Antibody", Price: "₹1050" },
+    { name: "Anti Phospholipid Syndrome (APS) Profile", Price: "₹4750" },
+    { name: "Anti Thyroid Antibody (ATAB) Panel", Price: "₹2300" },
+    { name: "Anti-Mullerian Hormone (AMH)", Price: "₹2090" },
+    { name: "Bacterial Culture & Sensitivity, Adult, Blood", Price: "₹1050" },
+    { name: "Bacterial Culture & Sensitivity, Pediatric, Blood", Price: "₹1050" },
+    { name: "Bacterial Culture & Sensitivity, Sputum", Price: "₹1100" },
+    { name: "Bacterial Culture & Sensitivity, Urine", Price: "₹1050" },
+    { name: "Beta - Human Chorionic Gonadotropin (HCG)", Price: "₹750" },
+    { name: "CA 125", Price: "₹1030" },
+    { name: "CD4/CD8", Price: "₹2020" },
+    { name: "Cervical Cancer Screen Panel", Price: "₹2770" },
+    { name: "CRP (C-Reactive Protein)", Price: "₹570" },
+    { name: "Cytology - PAP Smear, LBC, Collected Sample", Price: "₹730" },
+    { name: "Cytology - PAP Smear, LBC, with Procedure", Price: "₹1320" },
+    { name: "D-dimer", Price: "₹1450" },
+    { name: "Dual Marker (Single & Twin)", Price: "₹2200" },
+    { name: "Electrolytes", Price: "₹540" },
+    { name: "Estradiol (E2)", Price: "₹670" },
+    { name: "Ferritin", Price: "₹890" },
+    { name: "FSH (Follicle Stimulating Hormone)", Price: "₹560" },
+    { name: "FSH, LH & Prolactin Panel", Price: "₹1430" },
+    { name: "H3 Profile (HIV, Hepatitis B, Hepatitis C)", Price: "₹2030" },
+    
+    { name: "Hemoglobin Electrophoresis / HPLC, Blood", Price: "₹1260" },
+    { name: "Histopathology - Biopsy, Any Site, 2 - 5 cm", Price: "₹2000" },
+    { name: "Histopathology - Biopsy, Large", Price: "₹2750" },
+    { name: "Histopathology - Small Biopsy, Any Site", Price: "₹1400" },
+    { name: "HLA B27 Detection, PCR, Blood", Price: "₹2300" },
+    { name: "Homocysteine, Plasma", Price: "₹1360" },
+    { name: "IgE (Immunoglobin E)", Price: "₹1050" },
+    { name: "IL-6 (Interleukin - 6)", Price: "₹3030" },
+    { name: "Iron Profile (without Ferritin)", Price: "₹1260" },
+    
+    { name: "LDH (Lactate Dehydrogenase)", Price: "₹510" },
+    { name: "LH (Luteinizing Hormone)", Price: "₹560" },
+    
+    
+    { name: "Lupus Anticoagulant (LA)", Price: "₹2080" },
+    { name: "Mycobacterium tuberculosis (MTB) DNA, PCR, Qualitative", Price: "₹1620" },
+    { name: "Procalcitonin", Price: "₹3300" },
+    { name: "Progesterone", Price: "₹670" },
+    { name: "Prolactin", Price: "₹570" },
+    { name: "PSA (Prostate Specific Antigen), Free & Total, Serum", Price: "₹1650" },
+    { name: "PSA (Prostate Specific Antigen), Total", Price: "₹890" },
+    { name: "PTH (Parathyroid Hormone)", Price: "₹1650" },
+    { name: "Quadruple Marker", Price: "₹3000" },
+    { name: "RA (Rheumatoid Arthritis) Factor", Price: "₹670" },
+    { name: "TB Culture, Sputum", Price: "₹1100" },
+    { name: "Testosterone, Free & Bioavailable", Price: "₹1820" },
+    { name: "Testosterone, Total", Price: "₹720" },
+    
+    { name: "TORCH Profile B, IgM & IgG", Price: "₹3490" },
+    { name: "Total TFT (T3, T4, TSH)", Price: "₹810" },
+    { name: "Triple Marker", Price: "₹2800" },
+    { name: "TSH (Thyroid Stimulating Hormone)", Price: "₹440" },
+    { name: "Vitamin B12", Price: "₹1160" },
+    
+    { name: "Vitamin D (25-Hydroxyvitamin D2 & D3), Total", Price: "₹1700" },
+    
+    { name: "Malaria Parasite (MP) Antigen, Rapid Card Test, Blood", Price: "₹670" },
+    { name: "Dengue NS1 Antigen, Serum", Price: "₹600" },
+    { name: "Anti Dengue Antibody, IgG, Serum", Price: "₹600" },
+    { name: "Anti Dengue Antibody, IgM, Serum", Price: "₹600" },
+    
+    { name: "Glucose, Post Prandial (PP), Plasma", Price: "₹110" },
+    { name: "Glucose, Fasting, Plasma & Urine", Price: "₹110" },
+    
+    { name: "Cholesterol, Total, Serum", Price: "₹260" },
+    { name: "Triglycerides, Serum", Price: "₹460" },
+    { name: "Cholesterol, High Density Lipoprotein (HDL), Serum", Price: "₹390" },
+    { name: "Cholesterol, Low density Lipoprotein (LDL), Serum", Price: "₹510" },
+    { name: "Urea/Blood Urea Nitrogen (BUN), Serum", Price: "₹240" },
+    { name: "Creatinine/eGFR, Serum", Price: "₹240" },
+    { name: "Sodium, Fluid", Price: "₹280" },
+    { name: "Potassium, Serum", Price: "₹280" },
+    { name: "Chloride, Serum", Price: "₹280" },
+    { name: "Calcium, Serum", Price: "₹260" },
+    { name: "TSH (Thyroid Stimulating Hormone), Serum", Price: "₹440" },
+    { name: "Free T3 (Triiodothyronine), Serum", Price: "₹410" },
+    { name: "Free T4", Price: "₹410" },
+    { name: "Estrogen Total, Serum", Price: "₹6,000" },
+    { name: "Bilirubin, Total/Direct/Indirect, Serum", Price: "₹290" },
+    { name: "Uric Acid, Serum", Price: "₹240" },
+    
+    { name: "Widal Test, Serum", Price: "₹560" },
+    { name: "Chikungunya, IgM, Serum", Price: "₹1,160" },
+    { name: "Anti Zika Virus Antibody, IgM, Serum", Price: "₹1,600" },
+    { name: "Anti Leptospira Antibody, IgM, Serum", Price: "₹1,270" },
+    { name: "IL-6 (Interleukin - 6)", Price: "₹3,030" },
+    { name: "Routine Examination, Stool", Price: "₹200" },
+    
+    { name: "Clotting Time, Blood", Price: "₹60" },
+    { name: "Bleeding Time , Blood", Price: "₹50" },
+    { name: "PT (Prothrombin Time) & INR, Plasma", Price: "₹410" },
+    { name: "Platelet Count, Blood", Price: "₹260" },
+    { name: "WBC (White Blood Cell) Count, Blood", Price: "₹260" },
+    { name: "HIV-1&2 Western blot by EIA - Serum", Price: "₹2,700" },
+    { name: "Anti HIV Antibody, Rapid, Serum", Price: "₹620" },
+    { name: "CA 125, Serum", Price: "₹1,310" },
+    { name: "Insulin, Fasting, Serum", Price: "₹890" },
+    { name: "Insulin, Post Prandial (2 Hr Post Meal), Serum", Price: "₹890" },
+    { name: "Insulin, Random, Serum", Price: "₹870" },
+    { name: "Glucose, Random, Plasma", Price: "₹110" },
+    { name: "HBsAg (Hepatitis B Surface Antigen), Serum", Price: "₹560" },
+    { name: "Anti HCV (Hepatitis C Virus) Antibody, Serum", Price: "₹1,160" },
+    { name: "Anti HAV (Hepatitis A Virus) Antibody, IgM, Serum", Price: "₹1,210" },
+    { name: "CEA (Carcinoembryonic Antigen), Serum", Price: "₹840" },
+    { name: "IHC - AFP (Alpha Feto Protein)", Price: "₹1,760" },
+    { name: "CA 19-9, Serum", Price: "₹1,440" },
+    { name: "CA 15-3, Serum", Price: "₹1,440" },
+    { name: "CA 27.29 Breast Cancer Marker [RW035]", Price: "₹5,810" },
+    { name: "CA 72-4, Serum", Price: "₹1,860" },
+    { name: "Phosphorus, Serum", Price: "₹240" },
+    { name: "Lipase, Serum", Price: "₹670" },
+    { name: "Serum Amylase", Price: "₹510" },
+    { name: "SGOT/AST (Aspartate Aminotransferase), Serum", Price: "₹240" },
+    { name: "SGPT/ALT (Alanine Aminotransferase), Serum", Price: "₹240" },
+    { name: "GGT (Gamma-Glutamyl transferase), Serum", Price: "₹460" },
+    { name: "Alkaline Phosphatase", Price: "₹250" },
+    { name: "Total Protein, Serum", Price: "₹330" },
+    { name: "Microalbumin, Albumin/Creatinine Ratio, Urine", Price: "₹670" },
+    { name: "Calcium, 24 hrs, Urine", Price: "₹460" },
+    { name: "Creatinine Clearance Test (CCT), 24 hrs, Urine", Price: "₹670" },
+    { name: "Chloride, 24 hrs, Urine", Price: "₹460" },
+    { name: "Creatinine, 24 hrs, Urine", Price: "₹510" },
+    { name: "Microalbumin, 24 hrs, Urine", Price: "₹670" },
+    { name: "Phosphorus, 24 hrs, Urine", Price: "₹460" },
+    { name: "Potassium, 24 hrs, Urine", Price: "₹460" },
+    { name: "Total Protein/Albumin, 24 hrs, Urine", Price: "₹460" },
+    { name: "Sodium, 24 hrs, Urine", Price: "₹460" },
+    { name: "Urea, 24 hrs, Urine", Price: "₹460" },
+    { name: "Uric Acid, 24 hrs, Urine", Price: "₹460" },
+    { name: "Cortisol, Early morning (AM), Serum", Price: "₹790" },
+    { name: "Cortisol, Late Evening (PM), Serum", Price: "₹790" },
+    { name: "Creatine Kinase (CK), Total, Serum", Price: "₹540" },
+    { name: "DHEAS (Dehydroepiandrosterone Sulphate), Serum", Price: "₹1,110" },
+    { name: "hsCRP (High Sensitivity CRP), Serum", Price: "₹790" },
+    { name: "Ionised Calcium, Serum", Price: "₹620" },
+    { name: "Magnesium, Serum", Price: "₹510" },
+    { name: "Anti Thyroperoxidase (TPO) Antibody, Serum", Price: "₹1,320" },
+    { name: "Hemoglobin (Hb)", Price: "₹260" },
+    { name: "Routine Examination, Semen", Price: "₹560" },
+    { name: "Protein Electrophoresis, Serum", Price: "₹1,050" },
+    { name: "Occult Blood, Stool", Price: "₹190" },
+    { name: "Allergy Panel, 107 Allergens, LIA", Price: "₹6,000" },
+    { name: "Magnesium, Serum", Price: "₹510" },
+    { name: "Mantoux Test (MT)", Price: "₹300" },
+    { name: "PTT/aPTT (Partial Thromboplastin Time), Plasma", Price: "₹540" },
+    { name: "RA (Rheumatoid Arthritis) Factor, Serum", Price: "₹670" },
+    { name: "Protein/Creatinine Ratio, Urine", Price: "₹840" },
+    { name: "Pregnancy Test, Urine (UPT)", Price: "₹460" },
+    { name: "VDRL (Venereal Disease Research Laboratory Test), Serum", Price: "₹300" },
+    { name: "Arterial Blood Gas (ABG) & Electrolytes, Blood", Price: "₹1,600" },
+    { name: "Allergen, Chicken, IgE, Serum", Price: "₹1,310" },
+    { name: "Allergen, Dust Mite (Dermatophagoides Pteronyssinus), IgE, Serum", Price: "₹1,320" },
+    { name: "Allergen, Egg White, IgE, Serum", Price: "₹1,310" },
+    { name: "Allergen, Egg Yolk, IgE, Serum", Price: "₹1,320" },
+    { name: "Allergen, Milk, IgE, Serum", Price: "₹1,310" },
+    { name: "Allergen, Fish, IgE, Serum", Price: "₹1,310" },
+    { name: "Allergen, Lobster, IgE, Serum", Price: "₹1,100" },
+    { name: "Allergen, Peanut, IgE, Serum", Price: "₹1,310" },
+    { name: "Allergy- Drug Panel (Maxi) [OS359]", Price: "₹4,230" },
+    { name: "Allergy : Asthma / Rhinitis Screening Panel, Adult", Price: "₹7,600" },
+    { name: "Allergy Panel, Animal/Insect", Price: "₹4,100" },
+    { name: "Allergy Panel, Comprehensive", Price: "₹15,300" },
+    { name: "Allergy Panel, Food, Non-Vegetarian", Price: "₹5,900.00" },
+    { name: "Allergy Panel, Food, Vegetarian", Price: "₹5,100" },
+    { name: "Anti Neutrophil Cytoplasmic Antibodies (ANCA), Serum", Price: "₹2,090" },
+    { name: "Anti HEV (Hepatitis E Virus) Antibody, IgM, Serum", Price: "₹1,440" },
+    { name: "Anti Streptolysin-O Antibody (ASO), Serum", Price: "₹670" },
+    { name: "Bence Jones Protein, 24 hrs, Urine", Price: "₹1,090" },
+    { name: "Beta - Human Chorionic Gonadotropin (HCG), Serum", Price: "₹790" },
+    { name: "Bicarbonate( Serum)", Price: "₹550" },
+    { name: "Cervical Cancer Screen Panel", Price: "₹2,770" },
+    { name: "Direct Coombs Test (DCT), Blood", Price: "₹670" },
+    { name: "Indirect Coombs Test (ICT), Serum", Price: "₹740" },
+    { name: "CK (CPK) Isoenzyme Electrophoresis, Serum", Price: "₹8,000" },
+    { name: "Fibrinogen - C, Plasma", Price: "₹1,000" },
+    { name: "FNAC, Slides Received (Up to 6 slides)", Price: "₹950" },
+    { name: "Folic acid, Serum", Price: "₹1,210" },
+    { name: "PSA (Prostate SpeciGic Antigen), Total, Serum", Price: "₹890" },
+    { name: "PSA (Prostate SpeciGic Antigen), Free & Total, Serum", Price: "₹1,650" },
+    { name: "G6PD (Glucose-6-Phosphate Dehydrogenase), Qualitative, Blood", Price: "₹730" },
+    { name: "G6PD (Glucose-6-Phosphate Dehydrogenase), Quantitative, Blood", Price: "₹1,110" },
+    { name: "GENEXPERT MTB/XDR RESISTANCE", Price: "₹4,300" },
+    { name: "GENEXPERT ULTRA (NEXT GENERATION) MTB WITH RIFAMPICIN RESISTANCE, SEMI QUANTITATIVE PCR", Price: "₹2,300" },
+    { name: "H1N1 (Swine Flu) RNA, PCR, Qualitative, Swab", Price: "₹4,640" },
+    { name: "Hemoglobin Electrophoresis / HPLC, Blood", Price: "₹1,260" },
+    { name: "Hepatitis B Virus (HBV) DNA, PCR, Qualitative, Plasma", Price: "₹4,050" },
+    { name: "Hepatitis B Virus (HBV) DNA, PCR, Quantitative, Plasma", Price: "₹6,030" },
+    { name: "IgA (Immunoglobulin A), Serum", Price: "₹790" },
+    { name: "IgE (Immunoglobin E), Serum", Price: "₹1,050" },
+    { name: "FSH, LH & Prolactin Panel", Price: "₹1,430" },
+    { name: "MEASLES (RUBEOLA) ANTIBODY IgM, SERUM", Price: "₹1,600" },
+    { name: "Anti Measles (Rubeola) Antibodies Panel, IgG & IgM, Serum", Price: "₹3,000" },
+    { name: "Anti Mumps Virus Antibodies Panel, IgG & IgM, Serum", Price: "₹3,100" },
+    { name: "Cytology - PAP Smear, Conventional, Slides Only", Price: "₹730" },
+    { name: "Cytology - PAP Smear, LBC, with Procedure", Price: "₹1,320" },
+    { name: "Anti Rh (Anti-D) Antibody, Quantitative, Serum", Price: "₹940" },
+    { name: "Rota Virus Antigen", Price: "₹1,000" },
+    { name: "Anti Rubella Antibody, IgG, Serum", Price: "₹730" },
+    { name: "Anti Rubella Antibody, IgM, Serum", Price: "₹730" },
+    { name: "TORCH Profile 4, IgG, Serum", Price: "₹1,980" },
+    { name: "TORCH Profile 4, IgM, Serum", Price: "₹1,980" },
+    { name: "TORCH Profile 8, IgM & IgG, Serum", Price: "₹3,490" }
+    
 ];
 
 // Global variables
@@ -85,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeSlider();
     initializeHeroSlider();
     initializeHealthSlider();
-    initializeBookSlider();
+
     addSlideAnimationCSS();
     addScrollAnimationStyles();
     addRippleEffect();
@@ -93,6 +254,8 @@ document.addEventListener('DOMContentLoaded', function() {
     lazyLoadImages();
     setTimeout(initializeSearch, 100);
     setTimeout(initializePackageBooking, 100);
+    setTimeout(initializeFAQ, 100);
+    setTimeout(initializeVisionMissionAnimations, 100);
 });
 
 // Blood Tests Initialization with Slider
@@ -105,15 +268,46 @@ function initializeBloodTests() {
     
     totalSlides = Math.ceil(bloodTests.length / testsPerPage);
     
+    // Helper functions for price handling and descriptions
+    function parsePriceToNumber(priceText) {
+        const digits = (priceText || '').toString().replace(/[^0-9.]/g, '');
+        const num = parseFloat(digits || '0');
+        return isNaN(num) ? 0 : num;
+    }
+    function formatINR(amount) {
+        try {
+            return new Intl.NumberFormat('en-IN', { maximumFractionDigits: 0 }).format(Math.round(amount));
+        } catch (e) {
+            return Math.round(amount).toString();
+        }
+    }
+    function computeMrp(baseText) {
+        const base = parsePriceToNumber(baseText);
+        const mrp = base * 1.10; // +10%
+        return `₹${formatINR(mrp)}`;
+    }
+    function buildDescription(name) {
+        const base = (name || '').split(',')[0].split('(')[0].trim();
+        return `Significance: Helps screen and monitor health related to ${base}.`;
+    }
+
     // Create all test cards
     bloodTests.forEach((test, index) => {
         const testCard = document.createElement('div');
         testCard.className = 'test-card';
         testCard.setAttribute('data-index', index);
+
+        const mrp = computeMrp(test.Price);
+        const desc = buildDescription(test.name);
+
         testCard.innerHTML = `
             <h3>${test.name}</h3>
-            <p>Professional blood test with home collection service</p>
-            <span class="test-code">${test.code}</span>
+            <p class="test-desc">${desc}</p>
+            <div class="price-row">
+                <span class="test-mrp">${mrp}</span>
+                <span class="test-Price">${test.Price}</span>
+            </div>
+            <span class="report-badge">Get Report within 6 hours</span>
         `;
         testCard.addEventListener('click', () => openWhatsApp());
         testsGrid.appendChild(testCard);
@@ -244,7 +438,7 @@ function addSlideAnimationCSS() {
         }
         
         /* Optimize animations to use GPU */
-        .animate-in, .slider-container, .slide, .book-slider-container,
+        .animate-in, .slider-container, .slide,
         .book-page, .hero-slide, .test-card, .package-card {
             transform: translateZ(0);
             backface-visibility: hidden;
@@ -492,6 +686,7 @@ function handleConsultationSubmit() {
     const formData = {
         specialty: document.getElementById('specialty')?.value || '',
         name: document.getElementById('name')?.value || '',
+        phone: document.getElementById('phone')?.value || '',
         dob: document.getElementById('dob')?.value || '',
         gender: document.getElementById('gender')?.value || '',
         medicalHistory: document.getElementById('medical-history')?.value || '',
@@ -545,7 +740,7 @@ function openWhatsApp() {
 }
 
 function openPhoneDialer() {
-    const phoneNumber = "+919594702242"; // The phone number with country code
+    const phoneNumber = "+919594702242"; // The phone number with country Price
     window.location.href = `tel:${phoneNumber}`;
 }
 
@@ -637,16 +832,16 @@ function nextHeroSlide() {
 function initializeSearch() {
     const searchInput = document.createElement('input');
     searchInput.type = 'text';
-    searchInput.placeholder = 'Search blood tests...';
+    searchInput.placeholder = 'Search blood tests';
     searchInput.className = 'search-input';
     searchInput.style.cssText = `
         width: 100%;
-        max-width: 400px;
-        margin: 0 auto 2rem;
-        padding: 12px 20px;
+        max-width: 420px;
+        margin: 8px auto 1.2rem;
+        padding: 10px 14px;
         border: 2px solid var(--background-light);
         border-radius: var(--border-radius);
-        font-size: 1rem;
+        font-size: 0.95rem;
         display: block;
     `;
 
@@ -655,26 +850,62 @@ function initializeSearch() {
         bloodTestsSection.appendChild(searchInput);
     }
 
+    const controls = {
+        prev: document.getElementById('prevBtn'),
+        next: document.getElementById('nextBtn'),
+        dots: document.getElementById('sliderDots'),
+        slider: document.getElementById('testsSlider')
+    };
+
+    function toggleControls(visible) {
+        const display = visible ? '' : 'none';
+        if (controls.prev) controls.prev.style.display = display;
+        if (controls.next) controls.next.style.display = display;
+        if (controls.dots) controls.dots.style.display = display;
+    }
+
+    function normalize(text) {
+        return text
+            .toLowerCase()
+            .normalize('NFD').replace(/\p{Diacritic}/gu, '')
+            .replace(/[^a-z0-9\s.₹,-]/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim();
+    }
+
     searchInput.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
+        const raw = this.value;
+        const query = normalize(raw);
+        const terms = query.split(' ').filter(Boolean);
         const testCards = document.querySelectorAll('.test-card');
-        
+
+        if (!query) {
+            // reset to slider view
+            toggleControls(true);
+            createSliderDots();
+            showSlide(0);
+            return;
+        }
+
+        // hide slider controls during search
+        toggleControls(false);
+
         testCards.forEach(card => {
-            const testName = card.querySelector('h3').textContent.toLowerCase();
-            const testCode = card.querySelector('.test-code').textContent.toLowerCase();
-            
-            if (testName.includes(searchTerm) || testCode.includes(searchTerm)) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
+            const nameText = normalize(card.querySelector('h3').textContent || '');
+            const priceText = normalize(card.querySelector('.test-Price')?.textContent || '');
+            const mrpText = normalize(card.querySelector('.test-mrp')?.textContent || '');
+            const descText = normalize(card.querySelector('.test-desc')?.textContent || '');
+            const haystack = `${nameText} ${priceText} ${mrpText} ${descText}`;
+            const matches = terms.every(t => haystack.includes(t));
+            card.style.display = matches ? 'flex' : 'none';
+            card.style.animation = matches ? 'slideIn 0.3s ease forwards' : '';
         });
     });
 }
 
 // Form validation
 function validateConsultationForm() {
-    const requiredFields = ['name', 'dob', 'gender', 'preferred-date', 'preferred-time'];
+    const requiredFields = ['name', 'phone', 'dob', 'gender', 'preferred-date', 'preferred-time'];
     let isValid = true;
     
     requiredFields.forEach(fieldId => {
@@ -690,6 +921,21 @@ function validateConsultationForm() {
             field.style.borderColor = '#4ECDC4';
         }
     });
+    
+    // Validate phone number format
+    const phoneField = document.getElementById('phone');
+    if (phoneField) {
+        const phoneValue = phoneField.value.trim();
+        const phoneRegex = /^[6-9]\d{9}$/; // Indian mobile number format
+        
+        if (!phoneRegex.test(phoneValue)) {
+            phoneField.style.borderColor = '#FF6B6B';
+            alert('Please enter a valid 10-digit Indian mobile number');
+            isValid = false;
+        } else {
+            phoneField.style.borderColor = '#4ECDC4';
+        }
+    }
     
     // Validate date is not in the past
     const preferredDateField = document.getElementById('preferred-date');
@@ -876,120 +1122,29 @@ slideAnimationStyle.textContent = `
 `;
 document.head.appendChild(slideAnimationStyle);
 
-// Book Animated Slider
-let currentBookPage = 0;
-let bookPages = [];
-let bookSliderInterval;
 
-function initializeBookSlider() {
-    const bookSlider = document.getElementById('bookSlider');
-    
-    if (!bookSlider) return;
-    
-    // Use Array.from for better performance with NodeList
-    bookPages = Array.from(bookSlider.querySelectorAll('.book-page'));
-    
-    // Apply initial transform to ensure hardware acceleration
-    bookPages.forEach(page => {
-        page.style.transform = 'translateZ(0)';
-    });
-    
-    // Create book indicators
-    createBookIndicators();
-    
-    // Start auto-slide
-    startBookSlider();
-    
-    // Pause on hover with passive event listeners for better performance
-    bookSlider.addEventListener('mouseenter', pauseBookSlider, { passive: true });
-    bookSlider.addEventListener('mouseleave', startBookSlider, { passive: true });
-    
-    // Initialize first page
-    updateBookPageDisplay();
-    
-    // Force a repaint to ensure smooth initial rendering
-    window.requestAnimationFrame(() => {
-        bookSlider.style.opacity = '0.99';
-        setTimeout(() => {
-            bookSlider.style.opacity = '1';
-        }, 0);
-    });
-}
 
-function goToBookPage(index) {
-    if (index < 0 || index >= bookPages.length) return;
+// FAQ Accordion functionality
+function initializeFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
     
-    currentBookPage = index;
-    updateBookPageDisplay();
-    updateBookIndicators();
-}
-
-function createBookIndicators() {
-    const indicatorsContainer = document.querySelector('.book-indicators');
-    if (!indicatorsContainer) return;
-    
-    indicatorsContainer.innerHTML = '';
-    
-    // Create a debounced version of goToBookPage to prevent rapid transitions
-    const debouncedGoToPage = debounce(goToBookPage, 300);
-    
-    for (let i = 0; i < bookPages.length; i++) {
-        const indicator = document.createElement('div');
-        indicator.className = 'indicator';
-        if (i === 0) indicator.classList.add('active');
-        indicator.addEventListener('click', () => debouncedGoToPage(i));
-        indicatorsContainer.appendChild(indicator);
-    }
-}
-
-function updateBookIndicators() {
-    const indicators = document.querySelectorAll('.book-indicators .indicator');
-    indicators.forEach((indicator, index) => {
-        if (index === currentBookPage) {
-            indicator.classList.add('active');
-        } else {
-            indicator.classList.remove('active');
-        }
-    });
-}
-
-function updateBookPageDisplay() {
-    // Use requestAnimationFrame for smoother animations
-    requestAnimationFrame(() => {
-        bookPages.forEach((page, index) => {
-            if (index === currentBookPage) {
-                page.style.transform = 'rotateY(0deg) translateZ(0)';
-                page.style.zIndex = '10';
-            } else if (index < currentBookPage) {
-                page.style.transform = 'rotateY(-180deg) translateZ(0)';
-                page.style.zIndex = '5';
-            } else {
-                page.style.transform = 'rotateY(0deg) translateZ(0)';
-                page.style.zIndex = '1';
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Close all other FAQ items
+            faqItems.forEach(otherItem => {
+                otherItem.classList.remove('active');
+            });
+            
+            // Toggle current item
+            if (!isActive) {
+                item.classList.add('active');
             }
         });
     });
-}
-
-function nextBookPage() {
-    if (currentBookPage < bookPages.length - 1) {
-        goToBookPage(currentBookPage + 1);
-    } else {
-        goToBookPage(0); // Loop back to first page
-    }
-}
-
-function startBookSlider() {
-    if (bookSliderInterval) clearInterval(bookSliderInterval);
-    // Use a slightly longer interval (5000ms) for smoother transitions
-    bookSliderInterval = setInterval(nextBookPage, 5000);
-}
-
-function pauseBookSlider() {
-    if (bookSliderInterval) {
-        clearInterval(bookSliderInterval);
-        bookSliderInterval = null;
-    }
 }
 
 // Add debounce function to prevent rapid transitions
@@ -1182,5 +1337,30 @@ function initializeModals() {
             event.target.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
+    });
+}
+
+// Vision Mission Scroll Animations
+function initializeVisionMissionAnimations() {
+    const animatedCards = document.querySelectorAll('.animate-on-scroll');
+    
+    if (animatedCards.length === 0) return;
+    
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Add staggered delay for each card
+                setTimeout(() => {
+                    entry.target.classList.add('animate-in');
+                }, index * 200); // 200ms delay between each card
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    animatedCards.forEach(card => {
+        cardObserver.observe(card);
     });
 }

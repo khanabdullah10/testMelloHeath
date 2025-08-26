@@ -46,7 +46,7 @@ body {
 }
 
 /* Optimize animations */
-.animate-in, .slider-container, .book-slider-container, .hero-slide,
+.animate-in, .slider-container, .hero-slide,
 .test-card, .package-card, .specialty-card, .location-card {
     will-change: transform, opacity;
     transform: translateZ(0);
@@ -271,10 +271,10 @@ img {
 
 /* Hero Section */
 .hero {
-    margin-top: 80px;
+    margin-top: 60px;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
     color: white;
-    padding: 100px 0;
+    padding: 60px 0;
     position: relative;
     overflow: hidden;
 }
@@ -319,15 +319,15 @@ img {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     line-height: 1.2;
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
     opacity: 0.9;
 }
 
@@ -381,7 +381,7 @@ img {
 
 .hero-graphic {
     text-align: center;
-    font-size: 8rem;
+    font-size: 6rem;
     opacity: 0.2;
     animation: float 3s ease-in-out infinite;
 }
@@ -393,19 +393,19 @@ img {
 
 /* Quick Actions */
 .quick-actions {
-    padding: 60px 0;
+    padding: 40px 0;
     background: var(--background-light);
 }
 
 .quick-actions-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
 }
 
 .quick-action-card {
     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow), 0 0 0 1px rgba(0, 0, 0, 0.02);
     text-align: center;
@@ -473,26 +473,27 @@ img {
 }
 
 .quick-action-card i {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: inline-block;
 }
 
 .quick-action-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
     color: var(--text-dark);
 }
 
 .quick-action-card p {
     color: var(--text-light);
+    font-size: 0.95rem;
 }
 
 /* Health Services Slider */
 .health-slider-section {
-    padding: 50px 0;
+    padding: 40px 0;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     overflow: hidden;
     position: relative;
@@ -501,9 +502,9 @@ img {
 .sliders-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
+    gap: 1.5rem;
     align-items: center;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -521,10 +522,10 @@ img {
 
 .slider-container {
     position: relative;
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
     border-radius: var(--border-radius);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.04);
     background: white;
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.08);
@@ -568,8 +569,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 320px;
-    padding: 30px;
+    min-height: 280px;
+    padding: 20px;
     overflow: hidden;
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     transition: all 0.5s ease;
@@ -699,166 +700,188 @@ img {
     transform: scale(1.1);
 }
 
-/* Book Animated Slider */
-.book-slider-container {
-    position: relative;
-    max-width: 450px;
-    width: 100%;
-    margin: 0 auto;
-    perspective: 1200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
-.book-wrapper {
+
+
+
+/* Vision, Mission & Motto Section */
+.vision-mission-section {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
     position: relative;
-    width: 100%;
-    height: 350px;
-    transform-style: preserve-3d;
-    margin-bottom: 0.5rem;
-    border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-    transform: translateZ(0);
-    will-change: transform;
-}
-
-.book {
-    position: relative;
     width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 1s cubic-bezier(0.25, 0.1, 0.25, 1);
-    will-change: transform;
 }
 
-.book-page {
+.vision-mission-section::before {
+    content: '';
     position: absolute;
-    width: 100%;
-    height: 100%;
-    background: white;
-    border-radius: var(--border-radius);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
-    backface-visibility: hidden;
-    transform-origin: left center;
-    transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    will-change: transform, z-index;
-}
-
-.book-page img {
-    width: auto;
-    height: auto;
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transform: translateZ(0);
-    will-change: transform;
-}
-
-.book-page:hover img {
-    transform: scale(1.05) translateZ(0);
-}
-
-.page-content {
-    position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-    color: white;
-    padding: 1.5rem 1rem 1rem;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23e9ecef" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+    opacity: 0.5;
+}
+
+.vision-mission-section .container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.vision-mission-section .section-header {
     text-align: center;
-    transform: translateY(100%) translateZ(0);
-    transition: transform 0.25s ease-out;
-    backdrop-filter: blur(4px);
-    will-change: transform;
+    margin-bottom: 2.5rem;
 }
 
-.book-page:hover .page-content {
-    transform: translateY(0) translateZ(0);
+.vision-mission-section .section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
 }
 
-.page-content h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+.vision-mission-section .section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 2px;
 }
 
-.page-content p {
-    font-size: 0.9rem;
-    opacity: 0.9;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+.vision-mission-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    width: 100%;
 }
 
-.book-controls {
-    display: none;
+.vision-card,
+.mission-card,
+.motto-card {
+    background: white;
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.book-btn {
-    background: var(--primary-color);
-    color: white;
-    border: none;
-    width: 45px;
-    height: 45px;
+.vision-card::before,
+.mission-card::before,
+.motto-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.vision-card:hover::before,
+.mission-card:hover::before,
+.motto-card:hover::before {
+    transform: scaleX(1);
+}
+
+.vision-card:hover,
+.mission-card:hover,
+.motto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     border-radius: 50%;
-    cursor: pointer;
-    transition: var(--transition);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
-    box-shadow: var(--shadow);
-}
-
-.book-btn:hover {
-    background: var(--accent-color);
-    transform: scale(1.1);
-    box-shadow: var(--shadow-hover);
-}
-
-.book-btn:disabled {
-    background: var(--text-light);
-    cursor: not-allowed;
-    transform: none;
-}
-
-.book-indicators {
-    display: flex;
-    gap: 0.5rem;
-    flex-grow: 1;
-    justify-content: center;
-}
-
-.book-indicator {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #e0e0e0;
-    cursor: pointer;
+    font-size: 1.8rem;
+    color: white;
+    box-shadow: 0 8px 20px rgba(78, 205, 196, 0.25);
     transition: all 0.3s ease;
-    border: 2px solid transparent;
+    flex-shrink: 0;
 }
 
-.book-indicator.active {
-    background: var(--primary-color);
-    transform: scale(1.2);
-    box-shadow: 0 0 10px rgba(78, 205, 196, 0.5);
-    border-color: var(--primary-color);
+.vision-card:hover .card-icon,
+.mission-card:hover .card-icon,
+.motto-card:hover .card-icon {
+    transform: scale(1.05) rotate(3deg);
+    box-shadow: 0 10px 25px rgba(78, 205, 196, 0.3);
 }
 
-.book-indicator:hover {
-    background: var(--accent-color);
-    transform: scale(1.1);
+.vision-card h3,
+.mission-card h3,
+.motto-card h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1.2rem;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.vision-card h3::after,
+.mission-card h3::after,
+.motto-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+.vision-card p,
+.mission-card p,
+.motto-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-light);
+    margin: 0;
+    font-style: italic;
+    flex-grow: 1;
+}
+
+/* Animation classes */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.animate-on-scroll.animate-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Responsive Design for Slider */
@@ -902,24 +925,56 @@ img {
         height: 10px;
     }
     
-    .book-slider-container {
-        max-width: 400px;
-        width: 100%;
+    /* Vision Mission Responsive */
+    .vision-mission-section {
+        padding: 50px 0;
     }
     
-    .book-wrapper {
-        height: 300px;
+    .vision-mission-section .section-header h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.2rem;
     }
     
-    .book-controls {
-        gap: 0.8rem;
+    .vision-mission-section .section-header {
+        margin-bottom: 3rem;
     }
     
-    .book-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
+    .vision-mission-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 20px;
     }
+    
+    .vision-card,
+    .mission-card,
+    .motto-card {
+        padding: 2.5rem 2rem;
+        border-radius: 16px;
+    }
+    
+    .card-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .vision-card h3,
+    .mission-card h3,
+    .motto-card h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .vision-card p,
+    .mission-card p,
+    .motto-card p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+    
+
+
 }
 
 @media (max-width: 480px) {
@@ -936,33 +991,55 @@ img {
         font-size: 0.8rem;
     }
     
-    .book-slider-container {
-        max-width: 350px;
-        width: 100%;
+    /* Vision Mission Mobile Responsive */
+    .vision-mission-section {
+        padding: 20px 0;
     }
     
-    .book-wrapper {
-        height: 280px;
+    .vision-mission-section .section-header h2 {
+        font-size: 1.6rem;
+        margin-bottom: 0.6rem;
     }
     
-    .book-controls {
-        gap: 0.6rem;
-        padding: 0.8rem 0;
+    .vision-mission-section .section-header {
+        margin-bottom: 2rem;
     }
     
-    .book-btn {
-        width: 35px;
-        height: 35px;
+    .vision-mission-grid {
+        gap: 1rem;
+        padding: 0 10px;
+    }
+    
+    .vision-card,
+    .mission-card,
+    .motto-card {
+        padding: 1.5rem 1rem;
+        border-radius: 12px;
+    }
+    
+    .card-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .vision-card h3,
+    .mission-card h3,
+    .motto-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .vision-card p,
+    .mission-card p,
+    .motto-card p {
         font-size: 0.9rem;
+        line-height: 1.5;
     }
     
-    .page-content h3 {
-        font-size: 1.1rem;
-    }
-    
-    .page-content p {
-        font-size: 0.8rem;
-    }
+
+
 }
 
 /* Lab Partners */
@@ -1144,10 +1221,10 @@ img {
 
 .tests-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
     transition: transform 0.5s ease;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
 }
 
 .slider-dots {
@@ -1172,35 +1249,119 @@ img {
 }
 
 .test-card {
-    background: white;
-    padding: 1.5rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    transition: var(--transition);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 1.2rem;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(78, 205, 196, 0.08);
     border-left: 4px solid var(--primary-color);
-    min-height: 150px;
+    min-height: 140px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+    overflow: hidden;
 }
 
 .test-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15), 0 6px 15px rgba(0, 0, 0, 0.1);
+    border-color: rgba(78, 205, 196, 0.3);
+    background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+}
+
+.test-card:hover h3 {
+    color: var(--primary-color);
+    transform: translateX(2px);
+}
+
+.test-card:hover .test-Price {
+    background: linear-gradient(135deg, #45B7B8, #3a9a9b);
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(78, 205, 196, 0.4);
+}
+
+.test-card:hover .report-badge {
+    background: linear-gradient(135deg, #d4edda, #c3e6cb);
+    color: #155724;
+    transform: scale(1.05);
+    box-shadow: 0 2px 6px rgba(46, 204, 113, 0.2);
+}
+
+.test-card:hover .test-mrp {
+    color: #6c757d;
+}
+
+.test-card:hover .test-desc {
+    color: #495057;
 }
 
 .test-card h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
     color: var(--text-dark);
-    line-height: 1.3;
+    line-height: 1.4;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    transition: all 0.3s ease;
 }
 
 .test-card p {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    margin-bottom: 1rem;
+    font-size: 0.87rem;
+    color: #6c757d;
+    margin-bottom: 0.6rem;
     flex-grow: 1;
+    line-height: 1.4;
+}
+
+/* Blood test enhancements */
+.price-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.test-mrp {
+    color: #adb5bd;
+    text-decoration: line-through;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.test-desc {
+    color: #6c757d;
+    font-size: 0.84rem;
+    line-height: 1.4;
+    font-style: italic;
+    transition: all 0.3s ease;
+}
+
+.report-badge {
+    align-self: flex-end;
+    background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
+    color: #2d5a2d;
+    border: 1px solid rgba(46, 204, 113, 0.2);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    box-shadow: 0 1px 3px rgba(46, 204, 113, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Compact price badge for test card */
+.test-Price {
+    background: linear-gradient(135deg, #4ECDC4, #45B7B8);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    box-shadow: 0 2px 4px rgba(78, 205, 196, 0.3);
+    transition: all 0.3s ease;
 }
 
 .test-code {
@@ -2033,6 +2194,138 @@ img {
     font-size: 1.1rem;
 }
 
+/* Trustworthy Care */
+.trustworthy-care {
+    padding: 80px 0;
+    background: white;
+}
+
+.trustworthy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.trustworthy-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(78, 205, 196, 0.1);
+}
+
+.trustworthy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    border-color: rgba(78, 205, 196, 0.2);
+}
+
+.trustworthy-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.trustworthy-card:hover .trustworthy-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.trustworthy-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.trustworthy-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* FAQ Section */
+.faq {
+    padding: 80px 0;
+    background: var(--background-light);
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 3rem auto 0;
+}
+
+.faq-item {
+    background: white;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    background: rgba(78, 205, 196, 0.05);
+}
+
+.faq-question h3 {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    font-weight: 600;
+    margin: 0;
+}
+
+.faq-question i {
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: rgba(78, 205, 196, 0.02);
+}
+
+.faq-item.active .faq-answer {
+    padding: 1.5rem;
+    max-height: 200px;
+}
+
+.faq-answer p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin: 0;
+}
+
 /* Footer */
 .footer {
     background: linear-gradient(to bottom, #1a2a3a, #2C3E50);
@@ -2219,7 +2512,7 @@ img {
 .phone-float {
     width: 60px;
     height: 60px;
-    background-color: #007bff;
+    background: linear-gradient(135deg, #007bff, #0056b3);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -2227,7 +2520,7 @@ img {
     font-size: 30px;
     color: white;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
     transition: all 0.3s ease;
     animation: pulse 2s infinite;
     position: fixed;
@@ -2238,9 +2531,9 @@ img {
 }
 
 .phone-float:hover {
-    background: #0056b3;
+    background: linear-gradient(135deg, #0056b3, #004085);
     transform: scale(1.1);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
 }
 
 @media (max-width: 400px) {
@@ -2347,18 +2640,18 @@ img {
     }
     
     .hero {
-        margin-top: 70px;
-        padding: 60px 0;
+        margin-top: 50px;
+        padding: 40px 0;
     }
     
     .hero .container {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 2rem;
+        gap: 1.5rem;
     }
     
     .hero-title {
-        font-size: 2.3rem;
+        font-size: 2rem;
     }
     
     .hero-actions {
@@ -2369,12 +2662,75 @@ img {
         font-size: 1.9rem;
     }
     
-    .quick-actions-grid,
-    .lab-grid,
-    .packages-grid,
-    .radiology-grid {
-        grid-template-columns: 1fr;
+    .quick-actions {
+        padding: 30px 0;
     }
+    
+    .quick-actions-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+    
+    .quick-action-card {
+        padding: 1.3rem;
+    }
+    
+    .quick-action-card i {
+        font-size: 2.2rem;
+        margin-bottom: 0.7rem;
+    }
+    
+    .quick-action-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .quick-action-card p {
+        font-size: 0.9rem;
+    }
+
+    /* Health packages - 2-column grid on tablets */
+    .packages-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.2rem;
+    }
+
+    .package-card {
+        padding: 1.5rem;
+    }
+
+    /* Radiology services - 2-column grid on tablets */
+    .radiology-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+    }
+
+    .radiology-card {
+        padding: 1.5rem;
+    }
+
+    /* Brand logos (lab partners) - keep grid on tablets/large mobiles */
+    .lab-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+    }
+
+    .lab-card {
+        padding: 1.2rem;
+    }
+
+    .lab-logo {
+        width: 90px;
+        height: 90px;
+        padding: 10px;
+    }
+    
+    /* Brand logos (lab partners) - ensure two columns on most phones */
+    .lab-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.8rem;
+    }
+    .lab-card { padding: 1rem; }
     
     .specialties-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -2394,6 +2750,14 @@ img {
         padding: 12px;
     }
     
+    /* Brand logos (lab partners) - 2-column compact grid on small phones */
+    .lab-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.7rem;
+    }
+    .lab-card { padding: 0.9rem; }
+    .lab-logo { width: 78px; height: 78px; padding: 8px; }
+    
     .tests-slider-container {
         margin: 0 -15px;
     }
@@ -2412,11 +2776,11 @@ img {
     .tests-grid {
         grid-template-columns: 1fr;
         padding: 0.5rem 15px;
-        gap: 1rem;
+        gap: 0.8rem;
     }
     
     .test-card {
-        min-height: 130px;
+        min-height: 110px;
     }
     
     .slider-dots {
@@ -2447,6 +2811,71 @@ img {
 @media (max-width: 480px) {
     .container {
         padding: 0 15px;
+    }
+
+    /* Health packages - compact 2-column grid on phones */
+    .packages-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.8rem;
+    }
+
+    .package-card {
+        padding: 1.2rem;
+    }
+
+    .package-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .package-card > p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Radiology services - compact 2-column grid on phones */
+    .radiology-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.8rem;
+    }
+
+    .radiology-card {
+        padding: 1.2rem;
+    }
+
+    .radiology-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .radiology-card p {
+        font-size: 0.85rem;
+    }
+
+    /* Trustworthy Care - single column on phones */
+    .trustworthy-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .trustworthy-card {
+        padding: 1.5rem;
+    }
+
+    .trustworthy-card h3 {
+        font-size: 1.2rem;
+    }
+
+    /* FAQ - mobile optimization */
+    .faq-container {
+        margin: 2rem auto 0;
+    }
+
+    .faq-question {
+        padding: 1.2rem;
+    }
+
+    .faq-question h3 {
+        font-size: 1rem;
     }
     
     .navbar {
@@ -2490,16 +2919,16 @@ img {
     }
     
     .hero {
-        margin-top: 65px;
-        padding: 50px 0;
+        margin-top: 45px;
+        padding: 35px 0;
     }
     
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
     
     .btn {
@@ -2526,6 +2955,32 @@ img {
         font-size: 1rem;
     }
     
+    .quick-actions {
+        padding: 25px 0;
+    }
+    
+    .quick-actions-grid {
+        gap: 1rem;
+    }
+    
+    .quick-action-card {
+        padding: 1.1rem;
+    }
+    
+    .quick-action-card i {
+        font-size: 2rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .quick-action-card h3 {
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .quick-action-card p {
+        font-size: 0.85rem;
+    }
+    
     .lab-logo {
         width: 90px;
         height: 90px;
@@ -2549,23 +3004,23 @@ img {
     }
     
     .tests-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
         padding: 0.5rem 10px;
-        gap: 0.8rem;
+        gap: 0.6rem;
     }
     
     .test-card {
-        min-height: 120px;
-        padding: 1.2rem;
+        min-height: 110px;
+        padding: 0.9rem;
     }
     
     .test-card h3 {
-        font-size: 1rem;
+        font-size: 0.95rem;
         line-height: 1.2;
     }
     
     .test-card p {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
     
     .slider-dots {
@@ -2584,6 +3039,124 @@ img {
 @media (max-width: 360px) {
     .container {
         padding: 0 10px;
+    }
+    
+    .hero {
+        margin-top: 40px;
+        padding: 30px 0;
+    }
+    
+    .hero-title {
+        font-size: 1.6rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.2rem;
+    }
+    
+        .hero-graphic {
+        font-size: 4rem;
+    }
+    
+    /* Vision Mission Extra Small Mobile */
+    .vision-mission-section {
+        padding: 15px 0;
+    }
+    
+    .vision-mission-section .section-header h2 {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .vision-mission-section .section-header {
+        margin-bottom: 1.5rem;
+    }
+    
+    .vision-mission-grid {
+        gap: 0.8rem;
+        padding: 0 8px;
+    }
+    
+    .vision-card,
+    .mission-card,
+    .motto-card {
+        padding: 1.2rem 0.8rem;
+        border-radius: 10px;
+    }
+    
+    .card-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .vision-card h3,
+    .mission-card h3,
+    .motto-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .vision-card p,
+    .mission-card p,
+    .motto-card p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+
+    
+    .quick-actions {
+        padding: 20px 0;
+    }
+    
+    .quick-actions-grid {
+        gap: 0.8rem;
+    }
+    
+    .quick-action-card {
+        padding: 1rem;
+    }
+    
+    .quick-action-card i {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .quick-action-card h3 {
+        font-size: 0.95rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .quick-action-card p {
+        font-size: 0.8rem;
+    }
+    
+    /* Health packages - single column on very small screens */
+    .packages-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    .package-card {
+        padding: 1rem;
+    }
+
+    .package-card h3 {
+        font-size: 1.1rem;
+    }
+
+    /* Radiology services - single column on very small screens */
+    .radiology-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    .radiology-card {
+        padding: 1rem;
     }
     
     .navbar {
@@ -2706,3 +3279,4 @@ img {
         padding: 1px 3px;
     }
 }
+
