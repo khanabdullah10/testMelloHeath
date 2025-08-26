@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mello Health - From Lab to Doctor - All in one</title>
     <link rel="icon" type="image/png" href="assets/img/melloHeath.png">
-    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/health-packages.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -23,7 +24,10 @@
                 </div>
                 <div class="nav-menu" id="nav-menu">
                     <a href="#home" class="nav-link active">Home</a>
-                    <a href="#blood-tests" class="nav-link">Blood Tests</a>
+                    <a href="#blood-tests" class="nav-link" style="margin-bottom: -13px;">
+                        Blood Tests
+                        <span class="via-home-visit" data-text="Via Home Visit">Via Home Visit</span>
+                    </a>
                     <a href="#health-packages" class="nav-link">Health Packages</a>
                     <a href="#radiology" class="nav-link">Radiology</a>
                     <a href="#consultation" class="nav-link">Doctor Consultation</a>
@@ -233,9 +237,9 @@
                 </div>
                 <div class="lab-card">
                     <div class="lab-logo">
-                        <img src="assets/img/brandLogos/aurelius.png" alt="Aurelius Diagnostics" loading="lazy">
+                        <img src="assets/img/brandLogos/Agilius Diagnostics.png" alt="Aurelius Diagnostics" loading="lazy">
                     </div>
-                    <h3>Aurelius Diagnostics</h3>
+                    <h3>Agilius Diagnostics</h3>
                 </div>
                 <div class="lab-card">
                     <div class="lab-logo">
@@ -285,53 +289,292 @@
     <section class="health-packages" id="health-packages">
         <div class="container">
             <div class="section-header">
-                <h2 class="highlight">Health Checkup Packages</h2>
-                <p>Comprehensive health screening packages</p>
+                <h2 class="highlight">Choose Your Health Package</h2>
+                <p>Comprehensive health screening packages tailored to your needs</p>
+                <div class="price-highlight">
+                    <span class="price-text">Starts From ₹499/- Only</span>
+                </div>
             </div>
-            <div class="packages-grid">
-                <div class="package-card featured">
-                    <div class="package-icon">
+              <section class="health-pkg-section">
+        <div class="health-pkg-container">
+            <!-- <div class="health-pkg-header">
+                <h2>Choose Your Health Package</h2>
+                <p>Comprehensive health checkups tailored to your needs</p>
+            </div> -->
+
+            <div class="health-pkg-grid" id="healthPkgGrid">
+                <!-- Package 1: ProSelf Copper -->
+                <div class="health-pkg-card health-pkg-featured" data-package="1">
+                    <div class="health-pkg-popular-badge">Most Popular</div>
+                    <div class="health-pkg-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>Basic Health Checkup</h3>
-                    <p>Essential tests for general health monitoring</p>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Complete Blood Count</li>
-                        <li><i class="fas fa-check"></i> Lipid Profile</li>
-                        <li><i class="fas fa-check"></i> Blood Sugar</li>
-                        <li><i class="fas fa-check"></i> Kidney Function</li>
-                    </ul>
-                    <button class="btn btn-primary">Book Now</button>
+                    <h3>ProSelf Copper</h3>
+                    <div class="health-pkg-price">
+                        <span class="health-pkg-original-price">₹2,999</span>
+                        <span class="health-pkg-current-price">₹999</span>
+                    </div>
+                    <div class="health-pkg-discount-code">Additional 10% discount (Use: Melo10)</div>
+                    <p class="health-pkg-description">Essential tests for general health monitoring with comprehensive anemia, diabetes, and organ function assessment.</p>
+                    
+                    <div class="health-pkg-details">
+                        <div class="health-pkg-test-count">67 Test Parameters</div>
+                        <div class="health-pkg-content">
+                            <div class="health-pkg-content-preview">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Complete Blood Count (CBC)</li>
+                                    <li><i class="fas fa-check"></i> Diabetes Panel (FBS)</li>
+                                    <li><i class="fas fa-check"></i> Heart Health (Lipid Profile)</li>
+                                    <li><i class="fas fa-check"></i> Liver Function (SGPT)</li>
+                                </ul>
+                            </div>
+                            <div class="health-pkg-content-full" style="display: none;">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> <strong>Anemia:</strong> CBC</li>
+                                    <li><i class="fas fa-check"></i> <strong>Diabetes:</strong> FBS</li>
+                                    <li><i class="fas fa-check"></i> <strong>Heart:</strong> Lipid Profile</li>
+                                    <li><i class="fas fa-check"></i> <strong>Liver:</strong> SGPT</li>
+                                    <li><i class="fas fa-check"></i> <strong>Kidneys:</strong> Creatinine, eGFR, Urine Routine</li>
+                                    <li><i class="fas fa-check"></i> <strong>Bone & Joints:</strong> Uric Acid</li>
+                                </ul>
+                                <div class="health-pkg-fasting-note">*10-12 hours of fasting required</div>
+                            </div>
+                            <button class="health-pkg-read-more-btn" onclick="toggleHealthPkgContent(1)">Read More</button>
+                        </div>
+                    </div>
+                    <button class="health-pkg-btn health-pkg-btn-primary">Book Now</button>
                 </div>
-                <div class="package-card">
-                    <div class="package-icon">
+
+                <!-- Package 2: ProSelf Bronze -->
+                <div class="health-pkg-card" data-package="2">
+                    <div class="health-pkg-icon">
                         <i class="fas fa-heart"></i>
                     </div>
-                    <h3>Comprehensive Checkup</h3>
-                    <p>Detailed health assessment with advanced tests</p>
-                    <ul>
-                        <li><i class="fas fa-check"></i> All Basic Tests</li>
-                        <li><i class="fas fa-check"></i> Thyroid Profile</li>
-                        <li><i class="fas fa-check"></i> Vitamin Profile</li>
-                        <li><i class="fas fa-check"></i> ECG</li>
-                    </ul>
-                    <button class="btn btn-primary">Book Now</button>
+                    <h3>ProSelf Bronze</h3>
+                    <div class="health-pkg-price">
+                        <span class="health-pkg-original-price">₹3,999</span>
+                        <span class="health-pkg-current-price">₹1,999</span>
+                    </div>
+                    <div class="health-pkg-discount-code">Additional 10% discount (Use: Melo10)</div>
+                    <p class="health-pkg-description">Enhanced health assessment with additional diabetes and liver monitoring parameters.</p>
+                    
+                    <div class="health-pkg-details">
+                        <div class="health-pkg-test-count">73 Test Parameters</div>
+                        <div class="health-pkg-content">
+                            <div class="health-pkg-content-preview">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> All Copper Package Tests</li>
+                                    <li><i class="fas fa-check"></i> Enhanced Diabetes Panel</li>
+                                    <li><i class="fas fa-check"></i> Advanced Liver Function</li>
+                                    <li><i class="fas fa-check"></i> Comprehensive Kidney Tests</li>
+                                </ul>
+                            </div>
+                            <div class="health-pkg-content-full" style="display: none;">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> <strong>Anemia:</strong> CBC</li>
+                                    <li><i class="fas fa-check"></i> <strong>General:</strong> ESR</li>
+                                    <li><i class="fas fa-check"></i> <strong>Diabetes:</strong> FBS, Glyco-Hb</li>
+                                    <li><i class="fas fa-check"></i> <strong>Heart:</strong> Lipid Profile</li>
+                                    <li><i class="fas fa-check"></i> <strong>Liver:</strong> SGPT, SGOT</li>
+                                    <li><i class="fas fa-check"></i> <strong>Kidneys:</strong> BUN, Urea, Creatinine, eGFR, Sodium, Potassium, Chloride, Urine Routine</li>
+                                    <li><i class="fas fa-check"></i> <strong>Bone & Joints:</strong> Uric Acid</li>
+                                </ul>
+                                <div class="health-pkg-fasting-note">*10-12 hours of fasting required</div>
+                            </div>
+                            <button class="health-pkg-read-more-btn" onclick="toggleHealthPkgContent(2)">Read More</button>
+                        </div>
+                    </div>
+                    <button class="health-pkg-btn health-pkg-btn-primary">Book Now</button>
                 </div>
-                <div class="package-card">
-                    <div class="package-icon">
+
+                <!-- Package 3: ProSelf Silver -->
+                <div class="health-pkg-card" data-package="3">
+                    <div class="health-pkg-icon">
                         <i class="fas fa-user-plus"></i>
                     </div>
-                    <h3>Executive Checkup</h3>
-                    <p>Premium health package for busy professionals</p>
-                    <ul>
-                        <li><i class="fas fa-check"></i> All Comprehensive Tests</li>
-                        <li><i class="fas fa-check"></i> Stress Tests</li>
-                        <li><i class="fas fa-check"></i> Cancer Markers</li>
-                        <li><i class="fas fa-check"></i> Doctor Consultation</li>
-                    </ul>
-                    <button class="btn btn-primary">Book Now</button>
+                    <h3>ProSelf Silver</h3>
+                    <div class="health-pkg-price">
+                        <span class="health-pkg-original-price">₹6,999</span>
+                        <span class="health-pkg-current-price">₹3,999</span>
+                    </div>
+                    <div class="health-pkg-discount-code">Additional 10% discount (Use: Melo10)</div>
+                    <p class="health-pkg-description">Comprehensive health package with thyroid, vitamin analysis and advanced screening.</p>
+                    
+                    <div class="health-pkg-details">
+                        <div class="health-pkg-test-count">87 Test Parameters</div>
+                        <div class="health-pkg-content">
+                            <div class="health-pkg-content-preview">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> All Bronze Package Tests</li>
+                                    <li><i class="fas fa-check"></i> Thyroid Function Tests</li>
+                                    <li><i class="fas fa-check"></i> Vitamin Profile</li>
+                                    <li><i class="fas fa-check"></i> Advanced Heart Markers</li>
+                                </ul>
+                            </div>
+                            <div class="health-pkg-content-full" style="display: none;">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> <strong>Anemia:</strong> CBC</li>
+                                    <li><i class="fas fa-check"></i> <strong>General:</strong> ESR</li>
+                                    <li><i class="fas fa-check"></i> <strong>Diabetes:</strong> FBS, Glyco-Hb</li>
+                                    <li><i class="fas fa-check"></i> <strong>Heart:</strong> Lipid Profile</li>
+                                    <li><i class="fas fa-check"></i> <strong>Liver:</strong> SGPT, SGOT</li>
+                                    <li><i class="fas fa-check"></i> <strong>Kidneys:</strong> BUN, Urea, Creatinine, eGFR, Sodium, Potassium, Chloride, Urine Routine</li>
+                                    <li><i class="fas fa-check"></i> <strong>Bone & Joints:</strong> Uric Acid, Calcium, Phosphorus</li>
+                                    <li><i class="fas fa-check"></i> <strong>Thyroid:</strong> FT3, FT4, TSH</li>
+                                    <li><i class="fas fa-check"></i> <strong>Vitamins:</strong> Vit B12, Vit D</li>
+                                </ul>
+                                <div class="health-pkg-fasting-note">*10-12 hours of fasting required</div>
+                            </div>
+                            <button class="health-pkg-read-more-btn" onclick="toggleHealthPkgContent(3)">Read More</button>
+                        </div>
+                    </div>
+                    <button class="health-pkg-btn health-pkg-btn-primary">Book Now</button>
+                </div>
+
+                <!-- Hidden packages (initially) -->
+                <!-- Package 4: ProSelf Gold 40s For Him -->
+                <div class="health-pkg-card health-pkg-hidden" data-package="4">
+                    <div class="health-pkg-icon">
+                        <i class="fas fa-male"></i>
+                    </div>
+                    <h3>ProSelf Gold 40s (For Him)</h3>
+                    <div class="health-pkg-price">
+                        <span class="health-pkg-original-price">₹9,999</span>
+                        <span class="health-pkg-current-price">₹4,999</span>
+                    </div>
+                    <div class="health-pkg-discount-code">Additional 10% discount (Use: Melo10)</div>
+                    <p class="health-pkg-description">Specialized health package designed for men over 40 with comprehensive hormone and cardiac assessments.</p>
+                    
+                    <div class="health-pkg-details">
+                        <div class="health-pkg-test-count">92 Test Parameters</div>
+                        <div class="health-pkg-content">
+                            <div class="health-pkg-content-preview">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Complete Male Health Profile</li>
+                                    <li><i class="fas fa-check"></i> Advanced Heart Assessment</li>
+                                    <li><i class="fas fa-check"></i> Comprehensive Diabetes Panel</li>
+                                    <li><i class="fas fa-check"></i> Specialized Male Hormones</li>
+                                </ul>
+                            </div>
+                            <div class="health-pkg-content-full" style="display: none;">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> <strong>Anemia:</strong> CBC, Iron Studies with Ferritin</li>
+                                    <li><i class="fas fa-check"></i> <strong>General:</strong> ESR</li>
+                                    <li><i class="fas fa-check"></i> <strong>Diabetes:</strong> FBS, Glyco-Hb</li>
+                                    <li><i class="fas fa-check"></i> <strong>Heart:</strong> Lipid Profile, Homocysteine, hs-CRP</li>
+                                    <li><i class="fas fa-check"></i> <strong>Liver:</strong> Bilirubin, SGPT, SGOT, GGT, Total Proteins, Albumin, Globulin, A/G ratio, Alk Phos</li>
+                                    <li><i class="fas fa-check"></i> <strong>Kidneys:</strong> BUN, Urea, Creatinine, eGFR, Sodium, Potassium, Chloride, Urine Routine</li>
+                                    <li><i class="fas fa-check"></i> <strong>Bone & Joints:</strong> Uric Acid, Calcium, Phosphorus</li>
+                                    <li><i class="fas fa-check"></i> <strong>Thyroid:</strong> FT3, FT4, TSH</li>
+                                    <li><i class="fas fa-check"></i> <strong>Vitamins:</strong> Vit B12, Vit D</li>
+                                </ul>
+                                <div class="health-pkg-fasting-note">*Recommended for men in their 40s. *10-12 hours of fasting required</div>
+                            </div>
+                            <button class="health-pkg-read-more-btn" onclick="toggleHealthPkgContent(4)">Read More</button>
+                        </div>
+                    </div>
+                    <button class="health-pkg-btn health-pkg-btn-primary">Book Now</button>
+                </div>
+
+                <!-- Package 5: ProSelf Gold 40s For Her -->
+                <div class="health-pkg-card health-pkg-hidden" data-package="5">
+                    <div class="health-pkg-icon">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <h3>ProSelf Gold 40s (For Her)</h3>
+                    <div class="health-pkg-price">
+                        <span class="health-pkg-original-price">₹9,999</span>
+                        <span class="health-pkg-current-price">₹4,999</span>
+                    </div>
+                    <div class="health-pkg-discount-code">Additional 10% discount (Use: Melo10)</div>
+                    <p class="health-pkg-description">Comprehensive health package tailored for women over 40 with specialized female health markers.</p>
+                    
+                    <div class="health-pkg-details">
+                        <div class="health-pkg-test-count">98 Test Parameters</div>
+                        <div class="health-pkg-content">
+                            <div class="health-pkg-content-preview">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Complete Female Health Profile</li>
+                                    <li><i class="fas fa-check"></i> Hormone Assessment</li>
+                                    <li><i class="fas fa-check"></i> Bone Health Analysis</li>
+                                    <li><i class="fas fa-check"></i> Comprehensive Wellness Panel</li>
+                                </ul>
+                            </div>
+                            <div class="health-pkg-content-full" style="display: none;">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> <strong>Anemia:</strong> CBC, Iron Studies with Ferritin</li>
+                                    <li><i class="fas fa-check"></i> <strong>General:</strong> ESR</li>
+                                    <li><i class="fas fa-check"></i> <strong>Diabetes:</strong> FBS, Glyco-Hb</li>
+                                    <li><i class="fas fa-check"></i> <strong>Heart:</strong> Lipid Profile, Homocysteine, hs-CRP</li>
+                                    <li><i class="fas fa-check"></i> <strong>Liver:</strong> Bilirubin, SGPT, SGOT, GGT, Total Proteins, Albumin, Globulin, A/G ratio, Alk Phos</li>
+                                    <li><i class="fas fa-check"></i> <strong>Kidneys:</strong> BUN, Urea, Creatinine, eGFR, Sodium, Potassium, Chloride, Urine Routine</li>
+                                    <li><i class="fas fa-check"></i> <strong>Bone & Joints:</strong> Uric Acid, Calcium, Phosphorus</li>
+                                    <li><i class="fas fa-check"></i> <strong>Thyroid:</strong> FT3, FT4, TSH</li>
+                                    <li><i class="fas fa-check"></i> <strong>Vitamins:</strong> Vit B12, Vit D</li>
+                                    <li><i class="fas fa-check"></i> <strong>Female Hormones:</strong> Estradiol, FSH, LH</li>
+                                </ul>
+                                <div class="health-pkg-fasting-note">*Recommended for women in their 40s. *10-12 hours of fasting required</div>
+                            </div>
+                            <button class="health-pkg-read-more-btn" onclick="toggleHealthPkgContent(5)">Read More</button>
+                        </div>
+                    </div>
+                    <button class="health-pkg-btn health-pkg-btn-primary">Book Now</button>
+                </div>
+
+                <!-- Package 6: ProSelf Couple -->
+                <div class="health-pkg-card health-pkg-hidden" data-package="6">
+                    <div class="health-pkg-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>ProSelf Couple</h3>
+                    <div class="health-pkg-price">
+                        <span class="health-pkg-original-price">₹22,000</span>
+                        <span class="health-pkg-current-price">₹10,999</span>
+                    </div>
+                    <div class="health-pkg-discount-code">Additional 10% discount (Use: Melo10)</div>
+                    <p class="health-pkg-description">Comprehensive health package designed for couples with extensive testing for both partners.</p>
+                    
+                    <div class="health-pkg-details">
+                        <div class="health-pkg-test-count">204 Test Parameters</div>
+                        <div class="health-pkg-content">
+                            <div class="health-pkg-content-preview">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Complete Health Assessment for Both</li>
+                                    <li><i class="fas fa-check"></i> Comprehensive Hormone Panel</li>
+                                    <li><i class="fas fa-check"></i> Advanced Cardiac & Metabolic Tests</li>
+                                    <li><i class="fas fa-check"></i> Specialized Couple Wellness</li>
+                                </ul>
+                            </div>
+                            <div class="health-pkg-content-full" style="display: none;">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> <strong>Anemia:</strong> CBC x 2, Iron Studies with Ferritin x 2</li>
+                                    <li><i class="fas fa-check"></i> <strong>General:</strong> ESR x 2</li>
+                                    <li><i class="fas fa-check"></i> <strong>Diabetes:</strong> FBS x 2, Glyco-Hb x 2</li>
+                                    <li><i class="fas fa-check"></i> <strong>Heart:</strong> Lipid Profiles x 2, Homocysteine x 2, hs-CRP x 2, CPK x 2, LDH x 2</li>
+                                    <li><i class="fas fa-check"></i> <strong>Liver:</strong> Bilirubin x 2, SGPT x 2, SGOT x 2, GGT x 2, Total Proteins x 2, Albumin x 2, Globulin x 2, A/G ratio x 2, Alk Phos x 2</li>
+                                    <li><i class="fas fa-check"></i> <strong>Kidneys:</strong> BUN x 2, Urea x 2, Creatinine x 2, eGFR x 2, Sodium x 2, Potassium x 2, Chloride x 2, Urine Routine x 2</li>
+                                    <li><i class="fas fa-check"></i> <strong>Bone & Joints:</strong> Uric Acid x 2, Calcium x 2, Phosphorus x 2</li>
+                                    <li><i class="fas fa-check"></i> <strong>Thyroid:</strong> FT3 x 2, FT4 x 2, TSH x 2</li>
+                                    <li><i class="fas fa-check"></i> <strong>Vitamins:</strong> Vit B12 x 2, Vit D x 2</li>
+                                    <li><i class="fas fa-check"></i> <strong>Hormones:</strong> Estradiol x 2, Testosterone for him</li>
+                                </ul>
+                                <div class="health-pkg-fasting-note">*10-12 hours of fasting required</div>
+                            </div>
+                            <button class="health-pkg-read-more-btn" onclick="toggleHealthPkgContent(6)">Read More</button>
+                        </div>
+                    </div>
+                    <button class="health-pkg-btn health-pkg-btn-primary">Book Now</button>
                 </div>
             </div>
+
+            <div class="health-pkg-explore-container">
+                <button class="health-pkg-explore-btn" id="healthPkgExploreBtn" onclick="toggleHealthPkgPackages()">
+                    <span>Explore More Packages</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+    </section>
         </div>
     </section>
 
@@ -343,42 +586,42 @@
                 <p>Advanced imaging and diagnostic services</p>
             </div>
             <div class="radiology-grid">
-                <div class="radiology-card">
+                <div class="radiology-card" onclick="openRadiologyModal('Sonography')">
                     <div class="radiology-icon">
                         <i class="fas fa-eye"></i>
                     </div>
                     <h3>Sonography</h3>
                     <p>All types</p>
                 </div>
-                <div class="radiology-card">
+                <div class="radiology-card" onclick="openRadiologyModal('X-Ray')">
                     <div class="radiology-icon">
                         <i class="fas fa-heartbeat"></i>
                     </div>
                     <h3>2D ECHO</h3>
                     <p>Heart imaging</p>
                 </div>
-                <div class="radiology-card">
+                <div class="radiology-card" onclick="openRadiologyModal('X-Ray')">
                     <div class="radiology-icon">
                         <i class="fas fa-x-ray"></i>
                     </div>
                     <h3>X-Rays</h3>
                     <p>Digital imaging</p>
                 </div>
-                <div class="radiology-card">
+                <div class="radiology-card" onclick="openRadiologyModal('ECG')">
                     <div class="radiology-icon">
                         <i class="fas fa-heart"></i>
                     </div>
                     <h3>ECG</h3>
                     <p>Heart monitoring</p>
                 </div>
-                <div class="radiology-card">
+                <div class="radiology-card" onclick="openRadiologyModal('BMD')">
                     <div class="radiology-icon">
                         <i class="fas fa-bone"></i>
                     </div>
                     <h3>BMD</h3>
                     <p>Bone Mineral Density</p>
                 </div>
-                <div class="radiology-card">
+                <div class="radiology-card" onclick="openRadiologyModal('Mammography')">
                     <div class="radiology-icon">
                         <i class="fas fa-ribbon"></i>
                     </div>
@@ -655,6 +898,81 @@
         <i class="fas fa-phone-alt"></i>
     </a>
 
+    <!-- Radiology Form Modal -->
+    <div class="modal" id="radiology-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Book Radiology Service</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <form class="radiology-form" id="radiology-form">
+                <div class="form-group">
+                    <label for="radiology-service">Selected Service</label>
+                    <input type="text" id="radiology-service" readonly>
+                </div>
+                
+                <!-- Personal Information Section -->
+                <div class="form-section">
+                    <h3>Personal Information</h3>
+                    <div class="form-group">
+                        <label for="radiology-name">Full Name *</label>
+                        <input type="text" id="radiology-name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="radiology-dob">Date of Birth *</label>
+                            <input type="date" id="radiology-dob" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="radiology-gender">Gender *</label>
+                            <select id="radiology-gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Appointment Details Section -->
+                <div class="form-section">
+                    <h3>Appointment Details</h3>
+                    <div class="form-group">
+                        <label for="radiology-preferred-date">Preferred Date *</label>
+                        <input type="date" id="radiology-preferred-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="radiology-location">Location *</label>
+                        <select id="radiology-location" required>
+                            <option value="">Select Location</option>
+                            <option value="andheri">Andheri Center</option>
+                            <option value="bandra">Bandra Center</option>
+                            <option value="borivali">Borivali Center</option>
+                            <option value="thane">Thane Center</option>
+                            <option value="mulund">Mulund Center</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Additional Information Section -->
+                <div class="form-section">
+                    <h3>Additional Information</h3>
+                    <div class="form-group">
+                        <label for="radiology-medical-history">Medical History</label>
+                        <textarea id="radiology-medical-history" rows="3" placeholder="Please share any relevant medical history"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="radiology-referred-doctor">Referred Doctor Name</label>
+                        <input type="text" id="radiology-referred-doctor" placeholder="If referred by a doctor">
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Book Appointment</button>
+            </form>
+        </div>
+    </div>
+
     <!-- Success Modal -->
     <div class="modal" id="success-modal">
         <div class="modal-content success-modal-content">
@@ -666,9 +984,7 @@
             <button class="btn btn-primary" onclick="closeSuccessModal()">OK</button>
         </div>
     </div>
-
-
-
     <script src="/static/js/main.js"></script>
+    <script src="/static/js/health-packages.js"></script>
 </body>
 </html>

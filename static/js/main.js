@@ -311,10 +311,17 @@ function initializeSpecialtyCards() {
 
 // Modal Functions
 function initializeModal() {
-    const closeModal = document.querySelector('.close-modal');
+    const consultationCloseBtn = document.querySelector('#consultation-modal .close-modal');
+    const radiologyCloseBtn = document.querySelector('#radiology-modal .close-modal');
+    const radiologyModal = document.getElementById('radiology-modal');
+    const radiologyForm = document.getElementById('radiology-form');
     
-    if (closeModal) {
-        closeModal.addEventListener('click', closeConsultationModal);
+    if (consultationCloseBtn) {
+        consultationCloseBtn.addEventListener('click', closeConsultationModal);
+    }
+    
+    if (radiologyCloseBtn) {
+        radiologyCloseBtn.addEventListener('click', closeRadiologyModal);
     }
 
     // Close modal when clicking outside
@@ -325,6 +332,9 @@ function initializeModal() {
         if (event.target === successModal) {
             closeSuccessModal();
         }
+        if (event.target === radiologyModal) {
+            closeRadiologyModal();
+        }
     });
 
     // Form submission
@@ -334,6 +344,106 @@ function initializeModal() {
             handleConsultationSubmit();
         });
     }
+
+    // Radiology form submission
+    if (radiologyForm) {
+        radiologyForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            handleRadiologySubmit();
+        });
+    }
+}
+
+// Radiology Modal Functions
+function openRadiologyModal(service) {
+    const radiologyModal = document.getElementById('radiology-modal');
+    const serviceInput = document.getElementById('radiology-service');
+    
+    if (radiologyModal && serviceInput) {
+        radiologyModal.style.display = 'block';
+        // Add a small delay before adding the show class for the transition effect
+        setTimeout(() => {
+            radiologyModal.classList.add('show');
+        }, 10);
+        document.body.style.overflow = 'hidden';
+        serviceInput.value = service;
+    }
+}
+
+function closeRadiologyModal() {
+    const radiologyModal = document.getElementById('radiology-modal');
+    const radiologyForm = document.getElementById('radiology-form');
+    
+    if (radiologyModal) {
+        radiologyModal.classList.remove('show');
+        // Wait for the transition to complete before hiding the modal
+        setTimeout(() => {
+            radiologyModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            if (radiologyForm) {
+                radiologyForm.reset();
+            }
+        }, 300);
+    }
+}
+
+function handleRadiologySubmit() {
+    if (!validateRadiologyForm()) {
+        return;
+    }
+    
+    // Get form data
+    const formData = {
+        service: document.getElementById('radiology-service')?.value || '',
+        name: document.getElementById('radiology-name')?.value || '',
+        dob: document.getElementById('radiology-dob')?.value || '',
+        gender: document.getElementById('radiology-gender')?.value || '',
+        medicalHistory: document.getElementById('radiology-medical-history')?.value || '',
+        preferredDate: document.getElementById('radiology-preferred-date')?.value || '',
+        referredDoctor: document.getElementById('radiology-referred-doctor')?.value || '',
+        location: document.getElementById('radiology-location')?.value || ''
+    };
+    
+    console.log('Radiology booking:', formData);
+    
+    // Here you would send the data to your backend
+    // For demo purposes, we'll just show success modal
+    closeRadiologyModal();
+    showSuccessModal();
+}
+
+function validateRadiologyForm() {
+    const requiredFields = ['radiology-name', 'radiology-dob', 'radiology-gender', 'radiology-preferred-date', 'radiology-location'];
+    let isValid = true;
+    
+    requiredFields.forEach(fieldId => {
+        const field = document.getElementById(fieldId);
+        if (!field) return;
+        
+        const value = field.value.trim();
+        
+        if (!value) {
+            field.style.borderColor = '#FF6B6B';
+            isValid = false;
+        } else {
+            field.style.borderColor = '#4ECDC4';
+        }
+    });
+    
+    // Validate date is not in the past
+    const preferredDateField = document.getElementById('radiology-preferred-date');
+    if (preferredDateField) {
+        const preferredDate = preferredDateField.value;
+        const today = new Date().toISOString().split('T')[0];
+        
+        if (preferredDate < today) {
+            preferredDateField.style.borderColor = '#FF6B6B';
+            alert('Please select a future date for the appointment');
+            isValid = false;
+        }
+    }
+    
+    return isValid;
 }
 
 function openConsultationModal(specialty) {
@@ -351,17 +461,25 @@ function openConsultationModal(specialty) {
     
     if (consultationModal) {
         consultationModal.style.display = 'block';
+        // Add a small delay before adding the show class for the transition effect
+        setTimeout(() => {
+            consultationModal.classList.add('show');
+        }, 10);
         document.body.style.overflow = 'hidden';
     }
 }
 
 function closeConsultationModal() {
     if (consultationModal) {
-        consultationModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-        if (consultationForm) {
-            consultationForm.reset();
-        }
+        consultationModal.classList.remove('show');
+        // Wait for the transition to complete before hiding the modal
+        setTimeout(() => {
+            consultationModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            if (consultationForm) {
+                consultationForm.reset();
+            }
+        }, 300);
     }
 }
 
@@ -1030,5 +1148,39 @@ function addSectionRevealAnimations() {
         section.style.transform = 'translateY(30px)';
         section.style.transition = 'all 0.8s ease-out';
         sectionObserver.observe(section);
+    });
+}
+
+// Initialize modals
+function initializeModals() {
+    const modalTriggers = document.querySelectorAll('[data-modal]');
+    const closeButtons = document.querySelectorAll('.close-modal');
+
+    modalTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const modalId = trigger.getAttribute('data-modal');
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const modal = button.closest('.modal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
     });
 }
