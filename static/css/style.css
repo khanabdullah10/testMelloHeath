@@ -1044,13 +1044,14 @@ img {
 
 /* Lab Partners */
 .lab-partners {
-    padding: 80px 0;
+    padding: 12px 0;
     background: white;
 }
 
 .section-header {
+    padding-top: 16px;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 
 /* About Us Section */
@@ -1169,7 +1170,7 @@ img {
 
 /* Blood Tests */
 .blood-tests {
-    padding: 80px 0;
+    padding: 1px 0;
     background: var(--background-light);
 }
 
@@ -2348,6 +2349,13 @@ img {
     margin-bottom: 1rem;
 }
 
+/* Desktop footer brand alignment */
+@media (min-width: 769px) {
+    .footer-brand {
+        justify-content: flex-start;
+    }
+}
+
 .footer-logo {
     width: 40px;
     height: 40px;
@@ -2389,6 +2397,51 @@ img {
 
 .footer-section ul li a:hover {
     color: var(--primary-color);
+}
+
+/* Footer links alignment for desktop */
+.footer-links {
+    padding-left: 0;
+    text-align: left;
+}
+
+/* Desktop footer alignment */
+@media (min-width: 769px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+    }
+    
+    .footer-section {
+        text-align: left;
+    }
+    
+    .footer-section h4 {
+        text-align: left;
+        margin-bottom: 1.5rem;
+    }
+    
+    .footer-brand {
+        margin-bottom: 1.5rem;
+    }
+    
+    .footer-links {
+        text-align: left;
+        padding-left: 0;
+    }
+    
+    .contact-info {
+        text-align: left;
+    }
+    
+    .contact-item {
+        justify-content: flex-start;
+    }
+    
+    .social-links {
+        justify-content: flex-start;
+    }
 }
 
 .contact-section {
@@ -2621,7 +2674,7 @@ img {
         top: 100%;
         right: 0;
         width: 200px;
-        background: rgba(229, 243, 226, 0.85);
+        background: rgba(243, 255, 243, 90%);
         backdrop-filter: blur(2px);
         box-shadow: var(--shadow);
         flex-direction: column;
@@ -3230,18 +3283,32 @@ img {
     }
 }
 /* Mobile devices */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+    
     .footer-section {
         text-align: center;
     }
 
-    .footer-section .contact-info
-     {
+    .footer-section h4 {
+        text-align: center;
+    }
+    
+    .footer-brand {
+        justify-content: center;
+    }
+
+    .footer-section .contact-info {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
+    
     .footer-section .social-links {
         display: flex;
         flex-direction: row;   /* put them side by side */
@@ -3253,6 +3320,14 @@ img {
     .footer-section .social-links a {
         margin: 5px;
         font-size: 20px;
+    }
+    
+    .footer-links {
+        text-align: center;
+    }
+    
+    .contact-item {
+        justify-content: center;
     }
 }
 
@@ -3280,3 +3355,211 @@ img {
     }
 }
 
+@media (max-width: 480px) {
+    .slider-controls {
+        padding: 0 10px;
+        margin-bottom: 0rem;
+        margin-top: 0px;
+    }
+}
+
+/* Callback Form Modal Styles */
+.callback-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+.callback-modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.callback-modal-content {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideIn 0.3s ease;
+    position: relative;
+}
+
+.callback-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 1px solid #e9ecef;
+    background: linear-gradient(135deg, #4ECDC4, #44A08D);
+    color: white;
+    border-radius: 12px 12px 0 0;
+}
+
+.callback-header h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.callback-close {
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    transition: color 0.3s ease;
+    line-height: 1;
+}
+
+.callback-close:hover {
+    color: #ff6b6b;
+}
+
+.callback-form {
+    padding: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #4ECDC4;
+    box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.form-actions .btn {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-actions .btn-primary {
+    background: linear-gradient(135deg, #4ECDC4, #44A08D);
+    color: white;
+}
+
+.form-actions .btn-primary:hover {
+    background: linear-gradient(135deg, #44A08D, #3a8b7a);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+}
+
+.form-actions .btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.form-actions .btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { 
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .callback-modal-content {
+        width: 95%;
+        margin: 10px;
+    }
+    
+    .callback-header {
+        padding: 15px 20px;
+    }
+    
+    .callback-header h3 {
+        font-size: 1.2rem;
+    }
+    
+    .callback-form {
+        padding: 20px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .form-actions .btn {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .callback-modal-content {
+        width: 98%;
+        margin: 5px;
+    }
+    
+    .callback-header {
+        padding: 12px 15px;
+    }
+    
+    .callback-form {
+        padding: 15px;
+    }
+}
