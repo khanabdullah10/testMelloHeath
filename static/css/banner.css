@@ -38,7 +38,10 @@
   
   /* responsive heights */
   @media (max-width:720px){
-    .slider-viewport{ height:var(--height-mobile); }
+    .slider-viewport{
+      height: 186px;
+      margin-top: -12px;
+      }
   }
   
   /* track & slides */
@@ -242,6 +245,9 @@
   
   @media (max-width: 480px) {
     .slide {
-      background-size: 99% 86%; /* Even smaller on mobile */
+      background-size: 102% 86%; /* Even smaller on mobile */
     }
   }
+
+
+ 

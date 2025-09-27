@@ -55,6 +55,22 @@
     overflow: hidden;
 }
 
+.health-pkg-highlight {
+    box-shadow: 0 15px 40px rgba(78, 205, 196, 0.3);
+    transform: translateY(-10px);
+    border: 2px solid var(--primary-color);
+}
+
+@keyframes health-pkg-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(78, 205, 196, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(78, 205, 196, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(78, 205, 196, 0); }
+}
+
+.health-pkg-pulse {
+    animation: health-pkg-pulse 1s;
+}
+
 .health-pkg-card::before {
     content: '';
     position: absolute;

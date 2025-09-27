@@ -1018,6 +1018,19 @@ function initializeHealthSlider() {
         indicatorsContainer.appendChild(indicator);
     }
     
+    // Make slides clickable to their respective health packages
+    healthSlides.forEach((slide, index) => {
+        slide.style.cursor = 'pointer';
+        slide.addEventListener('click', () => {
+            // Get the health package name from the slide
+            const packageName = slide.querySelector('h3').textContent;
+            // Scroll to health packages section
+            scrollToSection('health-packages');
+            // Highlight the corresponding package (optional)
+            highlightHealthPackage(packageName);
+        });
+    });
+    
     // Start auto-slide
     startHealthSlider();
     
@@ -1104,6 +1117,46 @@ function updateHealthSlider() {
             slide.style.animation = '';
         }
     });
+}
+
+// Function to highlight a health package based on the name
+function highlightHealthPackage(packageName) {
+    // Map slider names to package names/numbers
+    const packageMap = {
+        'Allergy Testing': 1,
+        'Cancer Screening': 2,
+        'Diabetes Management': 3,
+        'Fever Diagnostics': 4,
+        'Full Body Checkup': 1, // Most comprehensive package
+        'Hair & Skin Care': 5,
+        'Heart Health': 6,
+        'Thyroid Testing': 3  // Assuming this is part of diabetes management
+    };
+    
+    // Get the package number based on the name
+    const packageNumber = packageMap[packageName] || 1; // Default to package 1 if not found
+    
+    // Find the package card
+    const packageCards = document.querySelectorAll('.health-pkg-card');
+    
+    // Remove any existing highlight classes
+    packageCards.forEach(card => {
+        card.classList.remove('health-pkg-highlight');
+    });
+    
+    // Find the matching package card and highlight it
+    const targetCard = document.querySelector(`.health-pkg-card[data-package="${packageNumber}"]`);
+    if (targetCard) {
+        targetCard.classList.add('health-pkg-highlight');
+        
+        // Add a temporary animation class
+        targetCard.classList.add('health-pkg-pulse');
+        
+        // Remove the animation class after it completes
+        setTimeout(() => {
+            targetCard.classList.remove('health-pkg-pulse');
+        }, 1000);
+    }
 }
 
 // Add slide entrance animation
