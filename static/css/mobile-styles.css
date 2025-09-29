@@ -1,0 +1,111 @@
+/* Improved Health Packages Mobile Styling */
+@media screen and (max-width: 768px) {
+    .human-healthians {
+        display: none;
+    }
+    
+    /* Improved Health Packages Mobile Styling */
+    .health-pkg-section {
+        padding: 20px 10px;
+    }
+    
+    .health-pkg-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .health-pkg-card {
+        padding: 15px;
+        max-width: 100%;
+        margin: 0 auto;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        border-radius: 12px;
+    }
+    
+    .health-pkg-card.health-pkg-featured {
+        transform: scale(1);
+        border-width: 1px;
+    }
+    
+    .health-pkg-popular-badge {
+        font-size: 0.7rem;
+        padding: 3px 8px;
+        right: 10px;
+        top: 10px;
+    }
+    
+    .health-pkg-icon {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+    }
+    
+    .health-pkg-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+    
+    .health-pkg-price {
+        margin: 8px 0;
+    }
+    
+    .health-pkg-original-price {
+        font-size: 0.8rem;
+    }
+    
+    .health-pkg-current-price {
+        font-size: 1.3rem;
+    }
+    
+    .health-pkg-discount-code {
+        font-size: 0.7rem;
+        margin-bottom: 8px;
+    }
+    
+    .health-pkg-description {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+        line-height: 1.4;
+    }
+    
+    .health-pkg-details {
+        padding: 8px;
+        background-color: rgba(248, 249, 250, 0.5);
+        border-radius: 8px;
+    }
+    
+    .health-pkg-test-count {
+        font-size: 0.8rem;
+        margin-bottom: 8px;
+    }
+    
+    .health-pkg-content ul {
+        margin: 0;
+        padding-left: 15px;
+    }
+    
+    .health-pkg-content ul li {
+        font-size: 0.8rem;
+        margin-bottom: 4px;
+        line-height: 1.3;
+    }
+    
+    .health-pkg-content ul li i {
+        font-size: 0.7rem;
+        margin-right: 4px;
+    }
+    
+    .health-pkg-read-more-btn {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+        margin-top: 8px;
+    }
+    
+    .health-pkg-btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        margin-top: 10px;
+        width: 100%;
+    }
+    
+    
+}

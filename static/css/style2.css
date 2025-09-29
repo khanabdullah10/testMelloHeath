@@ -234,6 +234,7 @@
         overflow: hidden;
         position: relative;
         padding: 20px 0;
+        touch-action: pan-y; /* Allow vertical scrolling but capture horizontal touches */
     }
 
     .lab-grid {
@@ -312,8 +313,8 @@
         }
     }
 
-    /* Pause animation on hover */
-    .lab-grid:hover {
+    /* Pause animation on touch/hover */
+    .lab-grid.paused {
         animation-play-state: paused;
     }
 }
@@ -334,6 +335,11 @@
         box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         text-align: center;
         transition: transform 0.3s ease;
+    }
+
+    /* Hide duplicate cards on desktop */
+    .lab-card.mobile-duplicate {
+        display: none;
     }
 
     .lab-card:hover {
